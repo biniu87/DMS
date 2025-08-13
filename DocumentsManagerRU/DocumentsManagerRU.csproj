@@ -1,0 +1,898 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{322DC6FE-A572-428C-8168-79EEDA3065DC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocumentsManagerRU</RootNamespace>
+    <AssemblyName>DMS</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <PublishUrl>publikuj\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.2.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TEST|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TEST\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PRODUKCJA|AnyCPU'">
+    <OutputPath>bin\PRODUKCJA\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <Optimize>true</Optimize>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>I:\DEV_TEAM\_PIVOTAL_6\dll\WSPOLNE\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>packages\NLog.4.5.11\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfiumViewer, Version=2.10.0.0, Culture=neutral, PublicKeyToken=91e4789cfb0609e0, processorArchitecture=MSIL">
+      <HintPath>..\packages\PdfiumViewer.2.10.0.0\lib\net20\PdfiumViewer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassPermissions.cs" />
+    <Compile Include="ColorLayout.cs" />
+    <Compile Include="Controllers\ColorLayoutController.cs" />
+    <Compile Include="Data1.cs" />
+    <Compile Include="DocumentViewerModel.cs" />
+    <Compile Include="Document_Class.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document_DataTypes_Enum.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document_DefinitionList_Items.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document_DefinitionPerClass.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document_Definitions.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document_ListItems_Permissions.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document_Permissions.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document_PermissionsTypes_Enum.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document_Security.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document_Settings.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Extension.cs" />
+    <Compile Include="GetClassPermissionsVector_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocumentClassPermission_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocumentDefinitionListItems_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocumentDefinitionsByDirective_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocumentDefinitionsForClass_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocumentDefinitions_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocumentListItemsPermissionsToSelect_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocumentListItemsPermissions_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocumentPermissionsForClass_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocumentPermissionsForSecurity_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocumentsClassByAssignedDefinition_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocumentsClass_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDocumentSecurity_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSettings.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
+    <Compile Include="Oznaczenia.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permissions.cs" />
+    <Compile Include="PobierzOznaczenia_Result.cs">
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\ProgressBarWithText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Security.cs" />
+    <Compile Include="DataShare.cs" />
+    <Compile Include="Impersonation\UserCredentials.cs" />
+    <Compile Include="Controllers\TempController.cs" />
+    <Compile Include="View\Controls\ContainsComboBox64.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Controls\ContainsComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Controls\ExtendedRadioControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\ExtendedRadioControl.Designer.cs">
+      <DependentUpon>ExtendedRadioControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\IndexControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\IndexControl.Designer.cs">
+      <DependentUpon>IndexControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\IndexDateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\IndexDateControl.Designer.cs">
+      <DependentUpon>IndexDateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\IndexComboControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\IndexComboControl.Designer.cs">
+      <DependentUpon>IndexComboControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\IndexValueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\IndexValueControl.Designer.cs">
+      <DependentUpon>IndexValueControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\AssignDocumentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\AssignDocumentControl.Designer.cs">
+      <DependentUpon>AssignDocumentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\Interfaces\IIndexControl.cs" />
+    <Compile Include="View\Controls\Interfaces\ISearchControl.cs" />
+    <Compile Include="View\Controls\SearchComboControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SearchComboControl.Designer.cs">
+      <DependentUpon>SearchComboControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SearchControl.Designer.cs">
+      <DependentUpon>SearchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\DGVDocumentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\DGVDocumentControl.Designer.cs">
+      <DependentUpon>DGVDocumentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SearchDateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SearchDateControl.Designer.cs">
+      <DependentUpon>SearchDateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SearchValueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SearchValueControl.Designer.cs">
+      <DependentUpon>SearchValueControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SecurityAdditionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SecurityAdditionControl.Designer.cs">
+      <DependentUpon>SecurityAdditionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\PermissionsClassControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\PermissionsClassControl.Designer.cs">
+      <DependentUpon>PermissionsClassControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\ucSectionControlNotifications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\ucSectionControlNotifications.Designer.cs">
+      <DependentUpon>ucSectionControlNotifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SecurityClassControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SecurityClassControl.Designer.cs">
+      <DependentUpon>SecurityClassControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SecurityAdditionSectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SecurityAdditionSectionControl.Designer.cs">
+      <DependentUpon>SecurityAdditionSectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SecurityOperationSectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SecurityOperationSectionControl.Designer.cs">
+      <DependentUpon>SecurityOperationSectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SecurityClassSectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SecurityClassSectionControl.Designer.cs">
+      <DependentUpon>SecurityClassSectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DialogBox.Designer.cs">
+      <DependentUpon>DialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document.cs" />
+    <Compile Include="DocumentModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DocumentModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DocumentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DocumentModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Document_Class1.cs" />
+    <Compile Include="Document_Definitions1.cs" />
+    <Compile Include="Document_Index.cs" />
+    <Compile Include="View\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAddClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmAddClass.Designer.cs">
+      <DependentUpon>frmAddClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAddDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmAddDocument.Designer.cs">
+      <DependentUpon>frmAddDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data.cs" />
+    <Compile Include="View\frmColorLayoutChooser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmColorLayoutChooser.Designer.cs">
+      <DependentUpon>frmColorLayoutChooser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmContentManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmContentManager.Designer.cs">
+      <DependentUpon>frmContentManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmDefinitionManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmDefinitionManager.Designer.cs">
+      <DependentUpon>frmDefinitionManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmDocumentViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmDocumentViewer.Designer.cs">
+      <DependentUpon>frmDocumentViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmEditDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmEditDocument.Designer.cs">
+      <DependentUpon>frmEditDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmEditDocumentFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmEditDocumentFile.Designer.cs">
+      <DependentUpon>frmEditDocumentFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmListManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmListManager.Designer.cs">
+      <DependentUpon>frmListManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmPermissionListItemsManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmPermissionListItemsManager.Designer.cs">
+      <DependentUpon>frmPermissionListItemsManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmPermissionManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmPermissionManager.Designer.cs">
+      <DependentUpon>frmPermissionManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmSecurityManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmSecurityManager.Designer.cs">
+      <DependentUpon>frmSecurityManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmShowDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmShowDetails.Designer.cs">
+      <DependentUpon>frmShowDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmSplashInProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmSplashInProgress.Designer.cs">
+      <DependentUpon>frmSplashInProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Impersonation\Impersonation.cs" />
+    <Compile Include="Impersonation\LogonType.cs" />
+    <Compile Include="Impersonation\NativeMethods.cs" />
+    <Compile Include="Impersonation\SafeTokenHandle.cs" />
+    <Compile Include="InterfaceLang_EMPTY.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InterfaceLang_EMPTY.resx</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLang_EN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InterfaceLang_EN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLang_PL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InterfaceLang_PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceLang_RU.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InterfaceLang_RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ITDataSet.cs">
+      <DependentUpon>ITDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ITDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\LanguageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LanguageBox.Designer.cs">
+      <DependentUpon>LanguageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PageBox.Designer.cs">
+      <DependentUpon>PageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Resources\dms_layout_icon16.png" />
+    <None Include="Resources\szablon1.png" />
+    <None Include="Resources\szablon2.png" />
+    <None Include="Resources\szablon3.png" />
+    <None Include="Resources\szablon4.png" />
+    <None Include="Resources\szablon5.png" />
+    <None Include="Resources\szablon6.png" />
+    <None Include="Resources\szablon7.png" />
+    <None Include="Resources\envelope-closed-2x.png" />
+    <None Include="Resources\BitMiracle.LibTiff.NET.xml" />
+    <Content Include="x64\pdfium.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\pdfium.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\aperture-2x.png" />
+    <None Include="Resources\PGm_png1.png" />
+    <None Include="Resources\PGm_png.png" />
+    <None Include="Resources\info-2x.png" />
+    <None Include="Resources\minus-2x.png" />
+    <None Include="Resources\spreadsheet-2x.png" />
+    <None Include="Resources\folder-2x.png" />
+    <None Include="Resources\tags-2x.png" />
+    <None Include="Resources\list-2x.png" />
+    <None Include="Resources\caret-left-2x.png" />
+    <None Include="Resources\person-2x.png" />
+    <None Include="Resources\caret-right-2x.png" />
+    <None Include="Resources\shield-2x.png" />
+    <None Include="Resources\ban-2x.png" />
+    <None Include="Resources\chevron-bottom.png" />
+    <None Include="Resources\book-2x.png" />
+    <None Include="Resources\chevron-bottom-2x.png" />
+    <None Include="Resources\question-mark-6x.png" />
+    <None Include="Resources\warning-6x.png" />
+    <None Include="Resources\check-6x.png" />
+    <None Include="Resources\x-6x.png" />
+    <None Include="Resources\info-6x.png" />
+    <None Include="Resources\paperclip-4x.png" />
+    <None Include="Resources\media-step-forward-2x.png" />
+    <None Include="Resources\media-step-backward-2x.png" />
+    <None Include="Resources\media-skip-forward-2x.png" />
+    <None Include="Resources\media-skip-backward-2x.png" />
+    <None Include="Resources\500.GIF" />
+    <EmbeddedResource Include="View\Controls\ExtendedRadioControl.resx">
+      <DependentUpon>ExtendedRadioControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\IndexControl.resx">
+      <DependentUpon>IndexControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\IndexDateControl.resx">
+      <DependentUpon>IndexDateControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\IndexComboControl.resx">
+      <DependentUpon>IndexComboControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\IndexValueControl.resx">
+      <DependentUpon>IndexValueControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\AssignDocumentControl.resx">
+      <DependentUpon>AssignDocumentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SearchComboControl.resx">
+      <DependentUpon>SearchComboControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SearchControl.resx">
+      <DependentUpon>SearchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\DGVDocumentControl.resx">
+      <DependentUpon>DGVDocumentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SearchDateControl.resx">
+      <DependentUpon>SearchDateControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SearchValueControl.resx">
+      <DependentUpon>SearchValueControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SecurityAdditionControl.resx">
+      <DependentUpon>SecurityAdditionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\PermissionsClassControl.resx">
+      <DependentUpon>PermissionsClassControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\ucSectionControlNotifications.resx">
+      <DependentUpon>ucSectionControlNotifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SecurityClassControl.resx">
+      <DependentUpon>SecurityClassControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SecurityAdditionSectionControl.resx">
+      <DependentUpon>SecurityAdditionSectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SecurityOperationSectionControl.resx">
+      <DependentUpon>SecurityOperationSectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SecurityClassSectionControl.resx">
+      <DependentUpon>SecurityClassSectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DialogBox.resx">
+      <DependentUpon>DialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmAddClass.resx">
+      <DependentUpon>frmAddClass.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmAddDocument.resx">
+      <DependentUpon>frmAddDocument.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmColorLayoutChooser.resx">
+      <DependentUpon>frmColorLayoutChooser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmContentManager.resx">
+      <DependentUpon>frmContentManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmDefinitionManager.resx">
+      <DependentUpon>frmDefinitionManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmDocumentViewer.resx">
+      <DependentUpon>frmDocumentViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmEditDocument.resx">
+      <DependentUpon>frmEditDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmEditDocumentFile.resx">
+      <DependentUpon>frmEditDocumentFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmListManager.resx">
+      <DependentUpon>frmListManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmPermissionListItemsManager.resx">
+      <DependentUpon>frmPermissionListItemsManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmPermissionManager.resx">
+      <DependentUpon>frmPermissionManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmSecurityManager.resx">
+      <DependentUpon>frmSecurityManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmShowDetails.resx">
+      <DependentUpon>frmShowDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmSplashInProgress.resx">
+      <DependentUpon>frmSplashInProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLang_EMPTY.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>InterfaceLang_EMPTY.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLang_EN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>InterfaceLang_EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLang_PL.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>InterfaceLang_PL.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceLang_RU.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>InterfaceLang_RU.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LanguageBox.resx">
+      <DependentUpon>LanguageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PageBox.resx">
+      <DependentUpon>PageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <EntityDeploy Include="DocumentModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DocumentModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DocumentModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DocumentModel.edmx</DependentUpon>
+      <LastGenOutput>DocumentModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DocumentModel.edmx.diagram">
+      <DependentUpon>DocumentModel.edmx</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DocumentModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DocumentModel.edmx</DependentUpon>
+      <LastGenOutput>DocumentModel.cs</LastGenOutput>
+    </None>
+    <None Include="ITDataSet.xsc">
+      <DependentUpon>ITDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ITDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ITDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ITDataSet.xss">
+      <DependentUpon>ITDataSet.xsd</DependentUpon>
+    </None>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paperclip-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\power-standby-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-8x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-check-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle-x-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file-4x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cog-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infinity-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock-locked-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil-2x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="App.PRODUKCJA.config">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.VisualStudio.SlowCheetah.3.1.66\build\Microsoft.VisualStudio.SlowCheetah.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.VisualStudio.SlowCheetah.3.1.66\build\Microsoft.VisualStudio.SlowCheetah.targets'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(ProjectDir)Resources\gsdll32.dll $(TargetDir) /Y</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="packages\Microsoft.VisualStudio.SlowCheetah.3.1.66\build\Microsoft.VisualStudio.SlowCheetah.targets" Condition="Exists('packages\Microsoft.VisualStudio.SlowCheetah.3.1.66\build\Microsoft.VisualStudio.SlowCheetah.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

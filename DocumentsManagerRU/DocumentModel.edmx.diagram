@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1dc88b6a8324448c9cba6668ad17363b" Name="Diagram1" ZoomLevel="80">
+        <EntityTypeShape EntityType="DocumentModel.Document_Class" Width="2.25" PointX="4" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DocumentModel.Document_Permissions" Width="2.25" PointX="0.75" PointY="0.5" />
+        <AssociationConnector Association="DocumentModel.FK_Document_Permissions_Document_Class" />
+        <EntityTypeShape EntityType="DocumentModel.Document_Settings" Width="3.375" PointX="13.25" PointY="4.25" />
+        <EntityTypeShape EntityType="DocumentModel.Document_Definitions" Width="2.125" PointX="10.625" PointY="0.5" />
+        <EntityTypeShape EntityType="DocumentModel.Document_DataTypes_Enum" Width="2.75" PointX="10.25" PointY="6.625" />
+        <EntityTypeShape EntityType="DocumentModel.Oznaczenia" Width="1.5" PointX="13.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DocumentModel.Document_PermissionsTypes_Enum" Width="2.75" PointX="13.75" PointY="6.625" />
+        <EntityTypeShape EntityType="DocumentModel.Document_Security" Width="2.375" PointX="0.625" PointY="5.625" />
+        <AssociationConnector Association="DocumentModel.FK_Document_Permissions_Document_SecurityGroups" />
+        <EntityTypeShape EntityType="DocumentModel.Document_DefinitionList_Items" Width="2.375" PointX="10.5" PointY="4.25" />
+        <EntityTypeShape EntityType="DocumentModel.Document_DefinitionPerClass" Width="2.5" PointX="7.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DocumentModel.Document_ListItems_Permissions" Width="2.625" PointX="3.875" PointY="5.625" />
+        <AssociationConnector Association="DocumentModel.FK_Document_DefinitionsPerClass_Document_Class" />
+        <AssociationConnector Association="DocumentModel.FK_Document_DefinitionList_Items_Document_Definitions" />
+        <AssociationConnector Association="DocumentModel.FK_Document_ListItems_Permissions_Document_DefinitionList_Items" />
+        <AssociationConnector Association="DocumentModel.FK_Document_DefinitionsPerClass_Document_Definitions" />
+        <AssociationConnector Association="DocumentModel.FK_Document_ListItems_Permissions_Document_Security" />
+        <AssociationConnector Association="DocumentModel.FK_Document_ListItems_Permissions_Document_Class" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

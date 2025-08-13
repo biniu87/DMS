@@ -1,0 +1,922 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnAddClass" xml:space="preserve">
+    <value>Utwórz klasę</value>
+    <comment>Nowa klasa</comment>
+  </data>
+  <data name="btnCancel" xml:space="preserve">
+    <value>Anuluj</value>
+    <comment>Anuluj</comment>
+  </data>
+  <data name="btnChooseFile" xml:space="preserve">
+    <value>Załącz plik dokumentu</value>
+    <comment>Wybierz dokument</comment>
+  </data>
+  <data name="btnClose" xml:space="preserve">
+    <value>Zamknij</value>
+    <comment>Zamknij</comment>
+  </data>
+  <data name="btnRefresh" xml:space="preserve">
+    <value>Odśwież</value>
+    <comment>Odśwież</comment>
+  </data>
+  <data name="btnReleaseDocument" xml:space="preserve">
+    <value>Zwolnij dokument</value>
+    <comment>Zwolnij dokument</comment>
+  </data>
+  <data name="descriptionDataGridViewTextBoxColumn" xml:space="preserve">
+    <value>Opis</value>
+    <comment>Opis</comment>
+  </data>
+  <data name="frmAddClass" xml:space="preserve">
+    <value>Utwórz klasę</value>
+    <comment>Dodaj klasę</comment>
+  </data>
+  <data name="frmAddDocument" xml:space="preserve">
+    <value>Zwolnij dokument</value>
+    <comment>Zwolnij dokument</comment>
+  </data>
+  <data name="gbClass" xml:space="preserve">
+    <value>Parametry klasy</value>
+    <comment>Parametry klasy</comment>
+  </data>
+  <data name="gbClassInfo" xml:space="preserve">
+    <value>Informacje o klasie</value>
+    <comment>Informacje o klasie</comment>
+  </data>
+  <data name="gbDocument" xml:space="preserve">
+    <value>Parametry dokumentu</value>
+    <comment>Parametry dokumentu</comment>
+  </data>
+  <data name="gbDocumentInfo" xml:space="preserve">
+    <value>Informacje o dokumencie</value>
+    <comment>Informacje o dokumencie</comment>
+  </data>
+  <data name="lblClass" xml:space="preserve">
+    <value>Klasa:</value>
+    <comment>Klasa:</comment>
+  </data>
+  <data name="lblClassTitle" xml:space="preserve">
+    <value>Klasa dokumentu</value>
+    <comment>Klasa dokumentu</comment>
+  </data>
+  <data name="lblDescription" xml:space="preserve">
+    <value>Opis:</value>
+    <comment>Opis:</comment>
+  </data>
+  <data name="lblDescription2" xml:space="preserve">
+    <value>Opis:</value>
+    <comment>Opis:</comment>
+  </data>
+  <data name="lblFile" xml:space="preserve">
+    <value>Plik:</value>
+    <comment>Plik:</comment>
+  </data>
+  <data name="lblName" xml:space="preserve">
+    <value>Nazwa:</value>
+    <comment>Nazwa:</comment>
+  </data>
+  <data name="lblName2" xml:space="preserve">
+    <value>Nazwa:</value>
+    <comment>Nazwa:</comment>
+  </data>
+  <data name="lblOriginalName" xml:space="preserve">
+    <value>Oryginalna nazwa:</value>
+    <comment>Oryginalna nazwa:</comment>
+  </data>
+  <data name="lblRelasedBy" xml:space="preserve">
+    <value>Zwolniony przez:</value>
+    <comment>Zwolniony przez:</comment>
+  </data>
+  <data name="lblReleaseDate" xml:space="preserve">
+    <value>Data zwolnienia:</value>
+    <comment>Data zwolnienia:</comment>
+  </data>
+  <data name="lblURL" xml:space="preserve">
+    <value>URL:</value>
+    <comment>URL:</comment>
+  </data>
+  <data name="msg01" xml:space="preserve">
+    <value>Musisz nadać nazwę dla dokumentu!</value>
+    <comment>Musisz nadać nazwę dla Dokumentu!</comment>
+  </data>
+  <data name="msg02" xml:space="preserve">
+    <value>Musisz wybrać plik, który ma zostać zwolniony!</value>
+    <comment>Musisz wybrać plik, który ma zostać zwolniony!</comment>
+  </data>
+  <data name="msg03" xml:space="preserve">
+    <value>Zwalnianie dokumentu zakończone sukcesem.</value>
+    <comment>Zwalnianie dokumentu zakończone sukcesem.</comment>
+  </data>
+  <data name="msg04" xml:space="preserve">
+    <value>Wystąpił problem w trakcie zwalniania dokumentu!</value>
+    <comment>Wystąpił problem w trakcie zwalniania dokumentu!</comment>
+  </data>
+  <data name="msg05" xml:space="preserve">
+    <value>Musisz podać nazwę dla nowej klasy!</value>
+    <comment>Musisz podać nazwę dla nowej klasy!</comment>
+  </data>
+  <data name="msg06" xml:space="preserve">
+    <value>Podana nazwa dla klasy dokumentów już jest w użyciu!</value>
+    <comment>Podana nazwa dla klasy dokumentów już jest w użyciu!</comment>
+  </data>
+  <data name="msg07" xml:space="preserve">
+    <value>Klasa została poprawnie utworzona.</value>
+    <comment>Klasa została poprawnie utworzona.</comment>
+  </data>
+  <data name="msg08" xml:space="preserve">
+    <value>Wystąpił problem w trakcie tworzenia nowej klasy!</value>
+    <comment>Wystąpił problem w trakcie tworzenia nowej klasy!</comment>
+  </data>
+  <data name="nameDataGridViewTextBoxColumn" xml:space="preserve">
+    <value>Nazwa</value>
+    <comment>Nazwa</comment>
+  </data>
+  <data name="oldFileNameDataGridViewTextBoxColumn" xml:space="preserve">
+    <value>Stara nazwa</value>
+    <comment>Stara nazwa</comment>
+  </data>
+  <data name="releaseDateDataGridViewTextBoxColumn" xml:space="preserve">
+    <value>Data zwolnienia</value>
+    <comment>Data zwolnienia</comment>
+  </data>
+  <data name="titleAppVersion" xml:space="preserve">
+    <value>Wersja aplikacji: </value>
+    <comment>Wersja aplikacji:</comment>
+  </data>
+  <data name="tsddbAction" xml:space="preserve">
+    <value>Akcja</value>
+    <comment>Akcja</comment>
+  </data>
+  <data name="tsddLanguage" xml:space="preserve">
+    <value>Język</value>
+    <comment>Język</comment>
+  </data>
+  <data name="tsmiClose" xml:space="preserve">
+    <value>Zamknij</value>
+    <comment>Zamknij</comment>
+  </data>
+  <data name="tsmiNewClass" xml:space="preserve">
+    <value>Utwórz klasę</value>
+    <comment>Nowa klasa</comment>
+  </data>
+  <data name="tsmiRefresh" xml:space="preserve">
+    <value>Odśwież</value>
+    <comment>Odśwież</comment>
+  </data>
+  <data name="tsmiReleaseDocument" xml:space="preserve">
+    <value>Zwolnij dokument</value>
+    <comment>Zwolnij dokument</comment>
+  </data>
+  <data name="uRLDataGridViewTextBoxColumn" xml:space="preserve">
+    <value>URL</value>
+    <comment>URL</comment>
+  </data>
+  <data name="btnlblSecurityClassFull" xml:space="preserve">
+    <value>Pełny dostęp</value>
+  </data>
+  <data name="btnlblSecurityClassNothing" xml:space="preserve">
+    <value>Brak dostępu</value>
+  </data>
+  <data name="btnlblSecurityClassRead" xml:space="preserve">
+    <value>Odczytywanie</value>
+  </data>
+  <data name="btnlblSecurityClassEdit" xml:space="preserve">
+    <value>Zwalnianie</value>
+  </data>
+  <data name="btnPermissionsClass" xml:space="preserve">
+    <value>Dostęp do klas</value>
+  </data>
+  <data name="btnUsers" xml:space="preserve">
+    <value>Użytkownicy</value>
+  </data>
+  <data name="dgvCBColumnFull" xml:space="preserve">
+    <value>Pełny dostęp</value>
+  </data>
+  <data name="dgvCBColumnRead" xml:space="preserve">
+    <value>Odczyt</value>
+  </data>
+  <data name="dgvCBColumnRelease" xml:space="preserve">
+    <value>Edycja</value>
+  </data>
+  <data name="dgvColumnLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="frmSecurityManager" xml:space="preserve">
+    <value>Użytkownicy i grupy</value>
+  </data>
+  <data name="frmUsersManager" xml:space="preserve">
+    <value>Użytkownicy</value>
+  </data>
+  <data name="lblDescriptionRU" xml:space="preserve">
+    <value>Opis RU:</value>
+  </data>
+  <data name="lblLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="lblNameRU" xml:space="preserve">
+    <value>Nazwa RU:</value>
+  </data>
+  <data name="msg10" xml:space="preserve">
+    <value>Musisz podać nazwę dla klasy w języku rosyjskim!</value>
+  </data>
+  <data name="msg11" xml:space="preserve">
+    <value>Podana nazwa dla klasy dokumentów w języku rosyjskim już jest w użyciu!</value>
+  </data>
+  <data name="msgVal01" xml:space="preserve">
+    <value>Nazwa użytkownika nie może być pusta!</value>
+  </data>
+  <data name="msgVal02" xml:space="preserve">
+    <value>Musisz podać unikalną nazwę użytkownika!</value>
+  </data>
+  <data name="tsmiPermissions" xml:space="preserve">
+    <value>Dostęp do klas</value>
+  </data>
+  <data name="tsmiUsers" xml:space="preserve">
+    <value>Użytkownicy</value>
+  </data>
+  <data name="dgvColumnActive" xml:space="preserve">
+    <value>Aktywny</value>
+  </data>
+  <data name="dgvColumnSecurity" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="msg12" xml:space="preserve">
+    <value>W systemie otwarta jest już aplikacja.</value>
+  </data>
+  <data name="msg13" xml:space="preserve">
+    <value>Użytkownik nie ma praw do uruchomienia aplikacji!</value>
+  </data>
+  <data name="msg14" xml:space="preserve">
+    <value>Skontaktuj się z administratorem.</value>
+  </data>
+  <data name="msg15" xml:space="preserve">
+    <value>Błąd uruchamiania aplikacji</value>
+  </data>
+  <data name="msg16" xml:space="preserve">
+    <value>Nazwa dokumentu musi być unikalna w obrębie klasy!</value>
+  </data>
+  <data name="msg18" xml:space="preserve">
+    <value>Jedno z pól na formularzu zostało zmodyfikowane, ale nie zapisane. Zamknąć bez zapisywania?</value>
+  </data>
+  <data name="btnSettings" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="frmSettings" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="gbSettings" xml:space="preserve">
+    <value>Ustawienia aplikacji</value>
+  </data>
+  <data name="lblDeleting" xml:space="preserve">
+    <value>Usuwaj plik po zwolnieniu:</value>
+  </data>
+  <data name="lblServerPath" xml:space="preserve">
+    <value>Adres folderu serwera:</value>
+  </data>
+  <data name="msg19" xml:space="preserve">
+    <value>Uwaga!</value>
+  </data>
+  <data name="tsddbAdmin" xml:space="preserve">
+    <value>Administracja</value>
+  </data>
+  <data name="tsmiSettings" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="msg20" xml:space="preserve">
+    <value>Zbyt długi adres pliku! Wybierz plik ponownie.</value>
+  </data>
+  <data name="lblReceiptDate" xml:space="preserve">
+    <value>Data wpływu:</value>
+  </data>
+  <data name="btnContractors" xml:space="preserve">
+    <value>Kontrahenci</value>
+  </data>
+  <data name="dgvColumnName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="msg21" xml:space="preserve">
+    <value>Czy na pewno chcesz usunąć rekord listy?</value>
+  </data>
+  <data name="btnSearch" xml:space="preserve">
+    <value>Szukaj</value>
+  </data>
+  <data name="dgvColumnClassName" xml:space="preserve">
+    <value>Klasa</value>
+  </data>
+  <data name="dgvColumnContractor" xml:space="preserve">
+    <value>Kontrahent</value>
+  </data>
+  <data name="dgvColumnDescription" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="dgvColumnReceiptDate" xml:space="preserve">
+    <value>Data wpływu</value>
+  </data>
+  <data name="dgvColumnReleaseDate" xml:space="preserve">
+    <value>Data zwolnienia</value>
+  </data>
+  <data name="lblSearch" xml:space="preserve">
+    <value>Wyszukiwanie</value>
+  </data>
+  <data name="lblSearchDocName" xml:space="preserve">
+    <value>Nazwa dokumentu:</value>
+  </data>
+  <data name="ttDetails" xml:space="preserve">
+    <value>Pokaż szczegóły</value>
+  </data>
+  <data name="ttOpen" xml:space="preserve">
+    <value>Otwórz dokument</value>
+  </data>
+  <data name="lblSearchReleaseDate" xml:space="preserve">
+    <value>Data zwolnienia (Od - Do):</value>
+  </data>
+  <data name="lblClass2" xml:space="preserve">
+    <value>Klasa:</value>
+  </data>
+  <data name="lblDocument" xml:space="preserve">
+    <value>Dokument:</value>
+  </data>
+  <data name="btnContentManager" xml:space="preserve">
+    <value>Edycja klas</value>
+  </data>
+  <data name="frmContentManager" xml:space="preserve">
+    <value>Edycja klas</value>
+  </data>
+  <data name="tsmiContentManager" xml:space="preserve">
+    <value>Edycja klas</value>
+  </data>
+  <data name="msg23" xml:space="preserve">
+    <value>Czy na pewno chcesz trwale usunąć następujący dokument:</value>
+  </data>
+  <data name="msg25" xml:space="preserve">
+    <value>Dokument nie został usunięty!</value>
+  </data>
+  <data name="lblDeleteDocument" xml:space="preserve">
+    <value>Usuń dokument</value>
+  </data>
+  <data name="lblEdit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="lblSaveClass" xml:space="preserve">
+    <value>Zapisz klasę</value>
+  </data>
+  <data name="lblSaveDocument" xml:space="preserve">
+    <value>Zapisz dokument</value>
+  </data>
+  <data name="lblActive" xml:space="preserve">
+    <value>Aktywna:</value>
+  </data>
+  <data name="lblActive2" xml:space="preserve">
+    <value>Aktywny:</value>
+  </data>
+  <data name="lblActive3" xml:space="preserve">
+    <value>Aktywna:</value>
+  </data>
+  <data name="lblRequired" xml:space="preserve">
+    <value>* Wymagane</value>
+  </data>
+  <data name="msg26" xml:space="preserve">
+    <value>Musisz podać wartość!</value>
+  </data>
+  <data name="lblIsRequired" xml:space="preserve">
+    <value>Wymagane:</value>
+  </data>
+  <data name="action" xml:space="preserve">
+    <value>Działanie</value>
+  </data>
+  <data name="actionCreate" xml:space="preserve">
+    <value>Tworzenie</value>
+  </data>
+  <data name="actionDelete" xml:space="preserve">
+    <value>Usuwanie</value>
+  </data>
+  <data name="actionRelease" xml:space="preserve">
+    <value>Zwalnianie</value>
+  </data>
+  <data name="msgDelete" xml:space="preserve">
+    <value>Potwierdź usunięcie</value>
+  </data>
+  <data name="msgFailed" xml:space="preserve">
+    <value>Wystąpił problem w trakcie trwania operacji!</value>
+  </data>
+  <data name="msgSuccess" xml:space="preserve">
+    <value>Operacja zakończona sukcesem!</value>
+  </data>
+  <data name="objectClass" xml:space="preserve">
+    <value>Klasa</value>
+  </data>
+  <data name="objectDefinition" xml:space="preserve">
+    <value>Definicja indeksu</value>
+  </data>
+  <data name="objectDocument" xml:space="preserve">
+    <value>Dokument</value>
+  </data>
+  <data name="gbIndexes" xml:space="preserve">
+    <value>Indeksy</value>
+  </data>
+  <data name="msg09" xml:space="preserve">
+    <value>Musisz podać wartość domyślną!</value>
+  </data>
+  <data name="msg17" xml:space="preserve">
+    <value>Podany tekst ma niepoprawny format!</value>
+  </data>
+  <data name="gbDefinitionInfo" xml:space="preserve">
+    <value>Informacje o definicji indeksu</value>
+  </data>
+  <data name="lblDataType" xml:space="preserve">
+    <value>Typ indeksu:</value>
+  </data>
+  <data name="lblDefinition" xml:space="preserve">
+    <value>Definicja:</value>
+  </data>
+  <data name="lblDefinitionDefault" xml:space="preserve">
+    <value>Wartość domyślna:</value>
+  </data>
+  <data name="lblDefinitionRange" xml:space="preserve">
+    <value>Zakres użycia indeksu:</value>
+  </data>
+  <data name="lblDescriptionPL1" xml:space="preserve">
+    <value>Opis:</value>
+  </data>
+  <data name="lblDescriptionRU1" xml:space="preserve">
+    <value>Opis RU:</value>
+  </data>
+  <data name="lblNamePL1" xml:space="preserve">
+    <value>Nazwa:</value>
+  </data>
+  <data name="lblNameRU1" xml:space="preserve">
+    <value>Nazwa RU:</value>
+  </data>
+  <data name="actionSave" xml:space="preserve">
+    <value>Zapisywanie</value>
+  </data>
+  <data name="frmEditDocument" xml:space="preserve">
+    <value>Edycja dokumentu</value>
+  </data>
+  <data name="btnSave" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="msg24" xml:space="preserve">
+    <value>Musisz podać nazwę unikalną w obrębie klasy i języka!</value>
+  </data>
+  <data name="msg27" xml:space="preserve">
+    <value>Musisz podać nazwę dla nowego indeksu w języku polskim!</value>
+  </data>
+  <data name="msg28" xml:space="preserve">
+    <value>Musisz podać nazwę dla nowego indeksu w języku rosyjskim!</value>
+  </data>
+  <data name="msg22" xml:space="preserve">
+    <value>Musisz wybrać typ indeksu!</value>
+  </data>
+  <data name="msg29" xml:space="preserve">
+    <value>Lista wpisów zawiera za dużo znaków!</value>
+  </data>
+  <data name="frmDetails" xml:space="preserve">
+    <value>Szczegóły</value>
+  </data>
+  <data name="lblDeactivateDate" xml:space="preserve">
+    <value>Data deaktywacji:</value>
+  </data>
+  <data name="msg30" xml:space="preserve">
+    <value>Potwierdź zmianę statusu aktywności dokumentu</value>
+  </data>
+  <data name="msgCancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="msgNo" xml:space="preserve">
+    <value>Nie</value>
+  </data>
+  <data name="msgYes" xml:space="preserve">
+    <value>Tak</value>
+  </data>
+  <data name="langEN" xml:space="preserve">
+    <value>Angielski</value>
+  </data>
+  <data name="langPL" xml:space="preserve">
+    <value>Polski</value>
+  </data>
+  <data name="langRU" xml:space="preserve">
+    <value>Rosyjski</value>
+  </data>
+  <data name="lblSecurityClassSectionTitle" xml:space="preserve">
+    <value>Dostęp do klas</value>
+  </data>
+  <data name="rbSecurityAdds" xml:space="preserve">
+    <value>Notatki, podświetlenia, zaciemnienia</value>
+  </data>
+  <data name="rbSecurityClass" xml:space="preserve">
+    <value>Operacje na dokumentach</value>
+  </data>
+  <data name="btnlblSecurityOperationFull" xml:space="preserve">
+    <value>Operacja dostępna, z możliwością ukrycia pól specjalnych</value>
+  </data>
+  <data name="btnlblSecurityOperationNone" xml:space="preserve">
+    <value>Brak dostępu do wykonania operacji</value>
+  </data>
+  <data name="btnlblSecurityOperationOnlyWith" xml:space="preserve">
+    <value>Operacja dostępna, bez możliwości ukrycia pól specjalnych</value>
+  </data>
+  <data name="lblSecurityPrintSectionTitle" xml:space="preserve">
+    <value>Dostęp do wydruku</value>
+  </data>
+  <data name="lblSecuritySaveSectionTitle" xml:space="preserve">
+    <value>Dostęp do  zapisu</value>
+  </data>
+  <data name="lblSecuritySendSectionTitle" xml:space="preserve">
+    <value>Dostęp do wysyłki</value>
+  </data>
+  <data name="btnlblSecurityAdditionCanHide" xml:space="preserve">
+    <value>Możliwość ukrywania obiektów przy podglądzie dokumentu</value>
+  </data>
+  <data name="btnlblSecurityAdditionFull" xml:space="preserve">
+    <value>Pełen dostęp do tworzenia, edycji i usuwania obiektów</value>
+  </data>
+  <data name="btnlblSecurityAdditionNew" xml:space="preserve">
+    <value>Dostępna możliwość tworzenia nowych obiektów</value>
+  </data>
+  <data name="btnlblSecurityAdditionNothing" xml:space="preserve">
+    <value>Brak dostępu do tworzenia i edycji obiektów</value>
+  </data>
+  <data name="lblSecurityAdditionBlackoutTitle" xml:space="preserve">
+    <value>Dostęp do zaciemnień</value>
+  </data>
+  <data name="lblSecurityAdditionHighligtTitle" xml:space="preserve">
+    <value>Dostęp do podświetleń</value>
+  </data>
+  <data name="lblSecurityAdditionNoteTitle" xml:space="preserve">
+    <value>Dostęp do notatek</value>
+  </data>
+  <data name="lblTypeNumber" xml:space="preserve">
+    <value>(liczba)</value>
+  </data>
+  <data name="btnlblSecurityClassDelete" xml:space="preserve">
+    <value>Usuwanie</value>
+  </data>
+  <data name="frmPermissionManager" xml:space="preserve">
+    <value>Dostęp do klas</value>
+  </data>
+  <data name="dgvColumnGroupAdded" xml:space="preserve">
+    <value>Jest</value>
+  </data>
+  <data name="dgvColumnGroupDecription" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="dgvColumnGroupName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="dgvColumnGroupNumber" xml:space="preserve">
+    <value>Lp.</value>
+  </data>
+  <data name="dgvColumnSecurityActive" xml:space="preserve">
+    <value>Aktyw.</value>
+  </data>
+  <data name="dgvColumnSecurityAdmin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="dgvColumnSecurityDescription" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="dgvColumnSecurityName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="dgvColumnSecurityType" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="dgvColumnUserAdded" xml:space="preserve">
+    <value>Jest</value>
+  </data>
+  <data name="dgvColumnUserName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="dgvColumnUserNumber" xml:space="preserve">
+    <value>Lp.</value>
+  </data>
+  <data name="securityTypeGroup" xml:space="preserve">
+    <value>Grupa</value>
+  </data>
+  <data name="securityTypeUser" xml:space="preserve">
+    <value>Użytkownik</value>
+  </data>
+  <data name="lblGroupTitle" xml:space="preserve">
+    <value>Grupy Active Directory</value>
+  </data>
+  <data name="lblSecurityTitle" xml:space="preserve">
+    <value>Zaimportowane grupy i użytkownicy</value>
+  </data>
+  <data name="lblUserTitle" xml:space="preserve">
+    <value>Użytkownicy Active Directory</value>
+  </data>
+  <data name="rbDefinitionRangeAll" xml:space="preserve">
+    <value>Wszystkie klasy</value>
+  </data>
+  <data name="rbDefinitionRangeMany" xml:space="preserve">
+    <value>Wiele klas</value>
+  </data>
+  <data name="rbDefinitionRangeSingle" xml:space="preserve">
+    <value>Jedna klasa</value>
+  </data>
+  <data name="gbListItems" xml:space="preserve">
+    <value>Zawartość listy</value>
+  </data>
+  <data name="lblExistingDefinitions" xml:space="preserve">
+    <value>Definicje indeksów:</value>
+  </data>
+  <data name="btnDefinitionManager" xml:space="preserve">
+    <value>Definicje indeksów</value>
+  </data>
+  <data name="frmDefinitionManager" xml:space="preserve">
+    <value>Edycja definicji indeksów</value>
+  </data>
+  <data name="lblDefinitionList" xml:space="preserve">
+    <value>Rekordy listy prostej (Jedna linijka - jeden rekord):</value>
+  </data>
+  <data name="lblListRecordCount" xml:space="preserve">
+    <value>Liczba rekordów listy:</value>
+  </data>
+  <data name="tsmiDefinitionManager" xml:space="preserve">
+    <value>Edycja definicji indeksów</value>
+  </data>
+  <data name="objectAssociatedDefinition" xml:space="preserve">
+    <value>Obiekt powiązania indeksu z klasą </value>
+  </data>
+  <data name="pcAdvancedList" xml:space="preserve">
+    <value>Rekordy listy</value>
+  </data>
+  <data name="pcDefinition" xml:space="preserve">
+    <value>Szczegóły definicji</value>
+  </data>
+  <data name="pcSimpleList" xml:space="preserve">
+    <value>Rekordy listy</value>
+  </data>
+  <data name="msg31" xml:space="preserve">
+    <value>Musisz wybrać definicję indeksu!</value>
+  </data>
+  <data name="btnPermissionsRecords" xml:space="preserve">
+    <value>Dostęp przez listy</value>
+  </data>
+  <data name="frmPermissionListItemsManager" xml:space="preserve">
+    <value>Zarządzanie dostępem do klas przez rekordy list</value>
+  </data>
+  <data name="lblDocumentClass" xml:space="preserve">
+    <value>Klasy</value>
+  </data>
+  <data name="lblDocumentDefinition" xml:space="preserve">
+    <value>Definicje indeksów</value>
+  </data>
+  <data name="lblDocumentListItems" xml:space="preserve">
+    <value>Rekordy listy</value>
+  </data>
+  <data name="lblGroups" xml:space="preserve">
+    <value>Grupy użytkowników</value>
+  </data>
+  <data name="tsmiPermissionsRecords" xml:space="preserve">
+    <value>Dostęp przez listy</value>
+  </data>
+  <data name="lblDefinitionListAdv" xml:space="preserve">
+    <value>Rekordy listy zaawansowanej:</value>
+  </data>
+  <data name="gbPrimaryObject" xml:space="preserve">
+    <value>Dokument nadrzędny</value>
+  </data>
+  <data name="gbSecondaryObjects" xml:space="preserve">
+    <value>Dokumenty podrzędne</value>
+  </data>
+  <data name="tpAssignedDetails" xml:space="preserve">
+    <value>Informacje o powiązanych dokumentach</value>
+  </data>
+  <data name="tpSimpleDetails" xml:space="preserve">
+    <value>Podstawowe informacje</value>
+  </data>
+  <data name="lblAssignClass" xml:space="preserve">
+    <value>Powiązana klasa:</value>
+  </data>
+  <data name="lblAssignDocument" xml:space="preserve">
+    <value>Powiązany dokument:</value>
+  </data>
+  <data name="msg32" xml:space="preserve">
+    <value>Wybierz dokument i klasę do powiązania, lub wyczyść powiązania!</value>
+  </data>
+  <data name="msgCancelEdit" xml:space="preserve">
+    <value>Anuluj edycję</value>
+  </data>
+  <data name="ttOpenDirectory" xml:space="preserve">
+    <value>Otwórz folder</value>
+  </data>
+  <data name="ttSavePath" xml:space="preserve">
+    <value>Zapisz ścieżkę folderu</value>
+  </data>
+  <data name="dgvColumnItemName" xml:space="preserve">
+    <value>Nazwa rekordu</value>
+  </data>
+  <data name="frmListManager" xml:space="preserve">
+    <value>Menedżer rekordów list zaawansowanych</value>
+  </data>
+  <data name="msgNoFile" xml:space="preserve">
+    <value>Brak pliku do wyświetlenia!</value>
+  </data>
+  <data name="msgNoPermissionToDocument" xml:space="preserve">
+    <value>Brak dostępu do dokumentu!</value>
+  </data>
+  <data name="lblPermissionsNotificationsTitle" xml:space="preserve">
+    <value>Zwalnianie</value>
+  </data>
+  <data name="btnPermissionEmailOnRelease" xml:space="preserve">
+    <value>Wysyłaj email do użytkownika lub grupy na zwolnienie dokumentu w danej klasie</value>
+  </data>
+  <data name="rbPermissionClass" xml:space="preserve">
+    <value>Klasy i Powiadomienia</value>
+  </data>
+  <data name="lblNewServerPath" xml:space="preserve">
+    <value>Nowy adres folderu serwera:</value>
+  </data>
+  <data name="strNoActive" xml:space="preserve">
+    <value>NIE (Zaznaczono)</value>
+  </data>
+  <data name="strNoInactive" xml:space="preserve">
+    <value>NIE</value>
+  </data>
+  <data name="strYesActive" xml:space="preserve">
+    <value>TAK (zaznaczono)</value>
+  </data>
+  <data name="strYesInactive" xml:space="preserve">
+    <value>TAK</value>
+  </data>
+  <data name="msg33" xml:space="preserve">
+    <value>Musisz podać unikalną nazwę!</value>
+  </data>
+  <data name="lblEmailOnRelease" xml:space="preserve">
+    <value>Wyślij emaila po zwolnieniu dokumentu:</value>
+  </data>
+  <data name="msg34" xml:space="preserve">
+    <value>Musisz wybrać wartość z listy!</value>
+  </data>
+  <data name="btnAddDefinition" xml:space="preserve">
+    <value>Dodaj definicję</value>
+  </data>
+  <data name="btnDeleteClass" xml:space="preserve">
+    <value>Usuń klasę</value>
+  </data>
+  <data name="btnDeleteDefinition" xml:space="preserve">
+    <value>Usuń definicję</value>
+  </data>
+  <data name="btnSaveClass" xml:space="preserve">
+    <value>Zapisz klasę</value>
+  </data>
+  <data name="btnSaveDefinition" xml:space="preserve">
+    <value>Zapisz definicję</value>
+  </data>
+  <data name="frmMigrationTools" xml:space="preserve">
+    <value>Narzędzia migracji</value>
+  </data>
+  <data name="lblFileSize" xml:space="preserve">
+    <value>Wielkość pliku:</value>
+  </data>
+  <data name="lblUseExternalViewer" xml:space="preserve">
+    <value>Używaj zewnętrznej aplikacji do otwierania dokumentów:</value>
+  </data>
+  <data name="msgAccessError" xml:space="preserve">
+    <value>Wystąpił problem z dostępem do serwera danych! Powiadom IT.</value>
+  </data>
+  <data name="btnChangeColorLayout" xml:space="preserve">
+    <value>Zmień kolory</value>
+  </data>
+  <data name="msgApplyToAllQuestion" xml:space="preserve">
+    <value>Czy na pewno chcesz zastosować zmianę dla wszystkich użytkowników na liście?</value>
+  </data>
+  <data name="msg35" xml:space="preserve">
+    <value>Liczba wystąpień w bazie danych:</value>
+  </data>
+  <data name="gbPreview" xml:space="preserve">
+    <value>Podgląd</value>
+  </data>
+  <data name="btnPermissionCanRelease" xml:space="preserve">
+    <value>Poświadczenie zezwalania użytkownikowi na zwalnianie dokumentów</value>
+  </data>
+  <data name="btnReleaseDocument1" xml:space="preserve">
+    <value>Zwolnij dokument</value>
+  </data>
+  <data name="gbFile" xml:space="preserve">
+    <value>Plik</value>
+  </data>
+  <data name="frmEditDocumentFile" xml:space="preserve">
+    <value>Podmiana pliku dokumentu</value>
+  </data>
+</root>

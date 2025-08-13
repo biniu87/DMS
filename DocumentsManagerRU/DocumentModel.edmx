@@ -1,0 +1,1881 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DocumentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Document_Class">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Table_Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Name" Type="nvarchar" MaxLength="127" />
+          <Property Name="Name_RU" Type="nvarchar" MaxLength="127" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description_RU" Type="nvarchar" MaxLength="255" />
+          <Property Name="Create_Date" Type="datetime" Nullable="false" />
+          <Property Name="Create_User" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Edit_Date" Type="datetime" Nullable="false" />
+          <Property Name="Edit_User" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Deactivate_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Document_DataTypes_Enum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeValue" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Name_PL" Type="nvarchar" MaxLength="255" />
+          <Property Name="Name_RU" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Document_DefinitionList_Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DefinitionId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="Document_DefinitionPerClass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassId" Type="int" Nullable="false" />
+          <Property Name="DefinitionId" Type="int" Nullable="false" />
+          <Property Name="ColumnName" Type="nvarchar" MaxLength="127" />
+          <Property Name="DefaultValue" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsRequired" Type="bit" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Deactivate_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Document_Definitions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DataType" Type="tinyint" />
+          <Property Name="Name_PL" Type="nvarchar" MaxLength="127" />
+          <Property Name="Description_PL" Type="nvarchar" MaxLength="255" />
+          <Property Name="Name_RU" Type="nvarchar" MaxLength="127" />
+          <Property Name="Description_RU" Type="nvarchar" MaxLength="255" />
+          <Property Name="Items" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Document_ListItems_Permissions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="ClassId" Type="int" Nullable="false" />
+          <Property Name="SecurityId" Type="int" Nullable="false" />
+          <Property Name="Permission" Type="bit" />
+        </EntityType>
+        <EntityType Name="Document_Permissions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SecurityId" Type="int" Nullable="false" />
+          <Property Name="ClassId" Type="int" Nullable="false" />
+          <Property Name="AccessLevel" Type="int" />
+          <Property Name="O_Print" Type="int" />
+          <Property Name="O_Save" Type="int" />
+          <Property Name="O_Send" Type="int" />
+          <Property Name="M_Highlight" Type="int" />
+          <Property Name="M_Blackout" Type="int" />
+          <Property Name="M_Note" Type="int" />
+          <Property Name="CH_Highlight" Type="bit" />
+          <Property Name="CH_Blackout" Type="bit" />
+          <Property Name="CH_Note" Type="bit" />
+          <Property Name="CS_Mail" Type="bit" />
+          <Property Name="DC_Release" Type="bit" />
+        </EntityType>
+        <EntityType Name="Document_PermissionsTypes_Enum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccessObject" Type="nvarchar" MaxLength="255" />
+          <Property Name="AccessType" Type="nvarchar" MaxLength="255" />
+          <Property Name="AccessValue" Type="int" />
+        </EntityType>
+        <EntityType Name="Document_Security">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Admin" Type="bit" />
+          <Property Name="IsGroup" Type="bit" />
+        </EntityType>
+        <EntityType Name="Document_Settings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="127" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="127" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Oznaczenia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Class_Id" Type="int" Nullable="false" />
+          <Property Name="Document_Id" Type="bigint" Nullable="false" />
+          <Property Name="Typ" Type="int" Nullable="false" />
+          <Property Name="Strona" Type="int" Nullable="false" />
+          <Property Name="Pozycja" Type="int" Nullable="false" />
+          <Property Name="Left" Type="float" Nullable="false" />
+          <Property Name="Top" Type="float" Nullable="false" />
+          <Property Name="Width" Type="float" Nullable="false" />
+          <Property Name="Height" Type="float" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Document_DefinitionList_Items_Document_Definitions">
+          <End Role="Document_Definitions" Type="Self.Document_Definitions" Multiplicity="1" />
+          <End Role="Document_DefinitionList_Items" Type="Self.Document_DefinitionList_Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Definitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_DefinitionList_Items">
+              <PropertyRef Name="DefinitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_DefinitionsPerClass_Document_Class">
+          <End Role="Document_Class" Type="Self.Document_Class" Multiplicity="1" />
+          <End Role="Document_DefinitionPerClass" Type="Self.Document_DefinitionPerClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_DefinitionPerClass">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_DefinitionsPerClass_Document_Definitions">
+          <End Role="Document_Definitions" Type="Self.Document_Definitions" Multiplicity="1" />
+          <End Role="Document_DefinitionPerClass" Type="Self.Document_DefinitionPerClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Definitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_DefinitionPerClass">
+              <PropertyRef Name="DefinitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_ListItems_Permissions_Document_Class">
+          <End Role="Document_Class" Type="Self.Document_Class" Multiplicity="1" />
+          <End Role="Document_ListItems_Permissions" Type="Self.Document_ListItems_Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_ListItems_Permissions">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_ListItems_Permissions_Document_DefinitionList_Items">
+          <End Role="Document_DefinitionList_Items" Type="Self.Document_DefinitionList_Items" Multiplicity="1" />
+          <End Role="Document_ListItems_Permissions" Type="Self.Document_ListItems_Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_DefinitionList_Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_ListItems_Permissions">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_ListItems_Permissions_Document_Security">
+          <End Role="Document_Security" Type="Self.Document_Security" Multiplicity="1" />
+          <End Role="Document_ListItems_Permissions" Type="Self.Document_ListItems_Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Security">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_ListItems_Permissions">
+              <PropertyRef Name="SecurityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_Permissions_Document_Class">
+          <End Role="Document_Class" Type="Self.Document_Class" Multiplicity="1" />
+          <End Role="Document_Permissions" Type="Self.Document_Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_Permissions">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_Permissions_Document_SecurityGroups">
+          <End Role="Document_Security" Type="Self.Document_Security" Multiplicity="1" />
+          <End Role="Document_Permissions" Type="Self.Document_Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Security">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_Permissions">
+              <PropertyRef Name="SecurityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ACT_DeleteAssign" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocumentId" Type="bigint" Mode="In" />
+          <Parameter Name="ClassId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ACT_UpdateAssign" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocumentId" Type="bigint" Mode="In" />
+          <Parameter Name="ClassId" Type="int" Mode="In" />
+          <Parameter Name="NewDocumentId" Type="bigint" Mode="In" />
+          <Parameter Name="NewClassId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ACT_UpdateOznaczeniaId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocumentId" Type="bigint" Mode="In" />
+          <Parameter Name="ClassId" Type="int" Mode="In" />
+          <Parameter Name="NewDocumentId" Type="bigint" Mode="In" />
+          <Parameter Name="NewClassId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DocumentClassDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="classId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DocumentClassInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="NameRU" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="DescriptionRU" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="DocumentClassUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="NameRU" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="DescriptionRU" Type="nvarchar" Mode="In" />
+          <Parameter Name="Active" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DocumentDefinitionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="definitionId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DocumentDefinitionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name_pl" Type="nvarchar" Mode="In" />
+          <Parameter Name="description_pl" Type="nvarchar" Mode="In" />
+          <Parameter Name="name_ru" Type="nvarchar" Mode="In" />
+          <Parameter Name="description_ru" Type="nvarchar" Mode="In" />
+          <Parameter Name="datatype" Type="tinyint" Mode="In" />
+          <Parameter Name="items" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="DocumentDefinitionListItemsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DocumentDefinitionListItemsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="definitionId" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="active" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DocumentDefinitionListItemsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="definitionId" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="active" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DocumentDefinitionPerClassDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DocumentDefinitionPerClassInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="classId" Type="int" Mode="In" />
+          <Parameter Name="definitionId" Type="int" Mode="In" />
+          <Parameter Name="required" Type="bit" Mode="In" />
+          <Parameter Name="active" Type="bit" Mode="In" />
+          <Parameter Name="default" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="DocumentDefinitionPerClassUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="required" Type="bit" Mode="In" />
+          <Parameter Name="active" Type="bit" Mode="In" />
+          <Parameter Name="default" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="DocumentDefinitionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="definitionId" Type="int" Mode="In" />
+          <Parameter Name="name_pl" Type="nvarchar" Mode="In" />
+          <Parameter Name="description_pl" Type="nvarchar" Mode="In" />
+          <Parameter Name="name_ru" Type="nvarchar" Mode="In" />
+          <Parameter Name="description_ru" Type="nvarchar" Mode="In" />
+          <Parameter Name="items" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="DocumentListItemsPermissionsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DocumentListItemsPermissionsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="itemId" Type="int" Mode="In" />
+          <Parameter Name="classId" Type="int" Mode="In" />
+          <Parameter Name="securityId" Type="int" Mode="In" />
+          <Parameter Name="permission" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DocumentListItemsPermissionsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="permission" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DocumentPermissionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="security" Type="int" Mode="In" />
+          <Parameter Name="class" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DocumentPermissionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="security" Type="int" Mode="In" />
+          <Parameter Name="class" Type="int" Mode="In" />
+          <Parameter Name="permission" Type="int" Mode="In" />
+          <Parameter Name="print" Type="int" Mode="In" />
+          <Parameter Name="save" Type="int" Mode="In" />
+          <Parameter Name="send" Type="int" Mode="In" />
+          <Parameter Name="m_highlight" Type="int" Mode="In" />
+          <Parameter Name="m_blackout" Type="int" Mode="In" />
+          <Parameter Name="m_note" Type="int" Mode="In" />
+          <Parameter Name="ch_highlight" Type="bit" Mode="In" />
+          <Parameter Name="ch_blackout" Type="bit" Mode="In" />
+          <Parameter Name="ch_note" Type="bit" Mode="In" />
+          <Parameter Name="cs_mail" Type="bit" Mode="In" />
+          <Parameter Name="dc_release" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DocumentPermissionModify" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="security" Type="int" Mode="In" />
+          <Parameter Name="class" Type="int" Mode="In" />
+          <Parameter Name="permission" Type="int" Mode="In" />
+          <Parameter Name="print" Type="int" Mode="In" />
+          <Parameter Name="save" Type="int" Mode="In" />
+          <Parameter Name="send" Type="int" Mode="In" />
+          <Parameter Name="m_highlight" Type="int" Mode="In" />
+          <Parameter Name="m_blackout" Type="int" Mode="In" />
+          <Parameter Name="m_note" Type="int" Mode="In" />
+          <Parameter Name="ch_highlight" Type="bit" Mode="In" />
+          <Parameter Name="ch_blackout" Type="bit" Mode="In" />
+          <Parameter Name="ch_note" Type="bit" Mode="In" />
+          <Parameter Name="cs_mail" Type="bit" Mode="In" />
+          <Parameter Name="dc_release" Type="bit" Mode="In" />
+          <Parameter Name="insertMissedOnly" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DocumentPermissionsFillDefaultForClass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="classId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DocumentPermissionsFillDefaultForSecurity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="security" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DocumentPermissionsFillDefaultFull" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="DocumentPermissionSimpleUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="security" Type="int" Mode="In" />
+          <Parameter Name="class" Type="int" Mode="In" />
+          <Parameter Name="field" Type="varchar" Mode="In" />
+          <Parameter Name="value" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DocumentPermissionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="security" Type="int" Mode="In" />
+          <Parameter Name="class" Type="int" Mode="In" />
+          <Parameter Name="permission" Type="int" Mode="In" />
+          <Parameter Name="print" Type="int" Mode="In" />
+          <Parameter Name="save" Type="int" Mode="In" />
+          <Parameter Name="send" Type="int" Mode="In" />
+          <Parameter Name="m_highlight" Type="int" Mode="In" />
+          <Parameter Name="m_blackout" Type="int" Mode="In" />
+          <Parameter Name="m_note" Type="int" Mode="In" />
+          <Parameter Name="ch_highlight" Type="bit" Mode="In" />
+          <Parameter Name="ch_blackout" Type="bit" Mode="In" />
+          <Parameter Name="ch_note" Type="bit" Mode="In" />
+          <Parameter Name="cs_mail" Type="bit" Mode="In" />
+          <Parameter Name="dc_release" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DocumentSecurityDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="DocumentSecurityInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Active" Type="bit" Mode="In" />
+          <Parameter Name="Admin" Type="bit" Mode="In" />
+          <Parameter Name="Group" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DocumentSecurityUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="Active" Type="bit" Mode="In" />
+          <Parameter Name="Admin" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DocumentSettingInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="value" Type="nvarchar" Mode="In" />
+          <Parameter Name="decription" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="DocumentSettingUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="value" Type="nvarchar" Mode="In" />
+          <Parameter Name="description" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetClassPermissionsVector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SecurityObjects" Type="nvarchar" Mode="In" />
+          <Parameter Name="class" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentClassPermission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="security" Type="nvarchar" Mode="In" />
+          <Parameter Name="class" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentDataTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="language" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentDefinitionListItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="definitionId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentDefinitions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Language" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentDefinitionsByDirective" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Language" Type="nvarchar" Mode="In" />
+          <Parameter Name="ClassId" Type="int" Mode="In" />
+          <Parameter Name="directive" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentDefinitionsForClass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Language" Type="nvarchar" Mode="In" />
+          <Parameter Name="ClassId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentListItemsPermissions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="definitionId" Type="int" Mode="In" />
+          <Parameter Name="classId" Type="int" Mode="In" />
+          <Parameter Name="security" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentListItemsPermissionsToSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="classId" Type="int" Mode="In" />
+          <Parameter Name="security" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentPath" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="documentId" Type="bigint" Mode="In" />
+          <Parameter Name="classId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentPermissionsForClass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="class" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentPermissionsForSecurity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="security" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentsClass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Language" Type="nvarchar" Mode="In" />
+          <Parameter Name="SecurityObjects" Type="nvarchar" Mode="In" />
+          <Parameter Name="PrimaryAccess" Type="int" Mode="In" />
+          <Parameter Name="SecondaryAccess" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentsClassByAssignedDefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Language" Type="nvarchar" Mode="In" />
+          <Parameter Name="DefinitionId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetDocumentSecurity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="groupTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="userTitle" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetSecondaryDocuments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="classId" Type="int" Mode="In" />
+          <Parameter Name="documentId" Type="bigint" Mode="In" />
+          <Parameter Name="language" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="LOG_DodajLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="typ" Type="nvarchar" Mode="In" />
+          <Parameter Name="login" Type="nvarchar" Mode="In" />
+          <Parameter Name="opis" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="LOG_Dokument_DodajAktualizacje" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idKlasy" Type="int" Mode="In" />
+          <Parameter Name="idDokumentu" Type="bigint" Mode="In" />
+          <Parameter Name="kolumna" Type="nvarchar" Mode="In" />
+          <Parameter Name="staraWartosc" Type="nvarchar" Mode="In" />
+          <Parameter Name="nowaWartosc" Type="nvarchar" Mode="In" />
+          <Parameter Name="login" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="LOG_Dokument_DodajDostep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idKlasy" Type="int" Mode="In" />
+          <Parameter Name="idDokumentu" Type="bigint" Mode="In" />
+          <Parameter Name="login" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="PobierzOznaczenia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocumentId" Type="bigint" Mode="In" />
+          <Parameter Name="ClassId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WyczyscOznaczeniaZeSkanu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocumentId" Type="bigint" Mode="In" />
+          <Parameter Name="ClassId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ZapiszOznaczenie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocumentId" Type="bigint" Mode="In" />
+          <Parameter Name="ClassId" Type="int" Mode="In" />
+          <Parameter Name="Typ" Type="int" Mode="In" />
+          <Parameter Name="Strona" Type="int" Mode="In" />
+          <Parameter Name="Pozycja" Type="int" Mode="In" />
+          <Parameter Name="Left" Type="float" Mode="In" />
+          <Parameter Name="Top" Type="float" Mode="In" />
+          <Parameter Name="Width" Type="float" Mode="In" />
+          <Parameter Name="Height" Type="float" Mode="In" />
+          <Parameter Name="Text" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="DocumentModelStoreContainer">
+          <EntitySet Name="Document_Class" EntityType="Self.Document_Class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document_DataTypes_Enum" EntityType="Self.Document_DataTypes_Enum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document_DefinitionList_Items" EntityType="Self.Document_DefinitionList_Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document_DefinitionPerClass" EntityType="Self.Document_DefinitionPerClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document_Definitions" EntityType="Self.Document_Definitions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document_ListItems_Permissions" EntityType="Self.Document_ListItems_Permissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document_Permissions" EntityType="Self.Document_Permissions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document_PermissionsTypes_Enum" EntityType="Self.Document_PermissionsTypes_Enum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document_Security" EntityType="Self.Document_Security" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document_Settings" EntityType="Self.Document_Settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oznaczenia" EntityType="Self.Oznaczenia" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Document_DefinitionList_Items_Document_Definitions" Association="Self.FK_Document_DefinitionList_Items_Document_Definitions">
+            <End Role="Document_Definitions" EntitySet="Document_Definitions" />
+            <End Role="Document_DefinitionList_Items" EntitySet="Document_DefinitionList_Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_DefinitionsPerClass_Document_Class" Association="Self.FK_Document_DefinitionsPerClass_Document_Class">
+            <End Role="Document_Class" EntitySet="Document_Class" />
+            <End Role="Document_DefinitionPerClass" EntitySet="Document_DefinitionPerClass" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_DefinitionsPerClass_Document_Definitions" Association="Self.FK_Document_DefinitionsPerClass_Document_Definitions">
+            <End Role="Document_Definitions" EntitySet="Document_Definitions" />
+            <End Role="Document_DefinitionPerClass" EntitySet="Document_DefinitionPerClass" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_ListItems_Permissions_Document_Class" Association="Self.FK_Document_ListItems_Permissions_Document_Class">
+            <End Role="Document_Class" EntitySet="Document_Class" />
+            <End Role="Document_ListItems_Permissions" EntitySet="Document_ListItems_Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_ListItems_Permissions_Document_DefinitionList_Items" Association="Self.FK_Document_ListItems_Permissions_Document_DefinitionList_Items">
+            <End Role="Document_DefinitionList_Items" EntitySet="Document_DefinitionList_Items" />
+            <End Role="Document_ListItems_Permissions" EntitySet="Document_ListItems_Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_ListItems_Permissions_Document_Security" Association="Self.FK_Document_ListItems_Permissions_Document_Security">
+            <End Role="Document_Security" EntitySet="Document_Security" />
+            <End Role="Document_ListItems_Permissions" EntitySet="Document_ListItems_Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_Permissions_Document_Class" Association="Self.FK_Document_Permissions_Document_Class">
+            <End Role="Document_Class" EntitySet="Document_Class" />
+            <End Role="Document_Permissions" EntitySet="Document_Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_Permissions_Document_SecurityGroups" Association="Self.FK_Document_Permissions_Document_SecurityGroups">
+            <End Role="Document_Security" EntitySet="Document_Security" />
+            <End Role="Document_Permissions" EntitySet="Document_Permissions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DocumentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Document_Class">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="127" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="Create_User" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Edit_Date" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="Edit_User" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Document_Permissions" Relationship="DocumentModel.FK_Document_Permissions_Document_Class" FromRole="Document_Class" ToRole="Document_Permissions" />
+          <Property Name="Name_RU" Type="String" MaxLength="127" FixedLength="false" Unicode="true" />
+          <Property Name="Description_RU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Table_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Deactivate_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Document_DefinitionPerClass" Relationship="DocumentModel.FK_Document_DefinitionsPerClass_Document_Class" FromRole="Document_Class" ToRole="Document_DefinitionPerClass" />
+          <NavigationProperty Name="Document_ListItems_Permissions" Relationship="DocumentModel.FK_Document_ListItems_Permissions_Document_Class" FromRole="Document_Class" ToRole="Document_ListItems_Permissions" />
+        </EntityType>
+        <EntityContainer Name="DocContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Document_Class" EntityType="Self.Document_Class" />
+          <FunctionImport Name="DocumentClassInsert">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="NameRU" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="DescriptionRU" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Document_Permissions" EntityType="DocumentModel.Document_Permissions" />
+          <AssociationSet Name="FK_Document_Permissions_Document_Class" Association="DocumentModel.FK_Document_Permissions_Document_Class">
+            <End Role="Document_Class" EntitySet="Document_Class" />
+            <End Role="Document_Permissions" EntitySet="Document_Permissions" />
+          </AssociationSet>
+          <FunctionImport Name="DocumentPermissionDelete">
+            <Parameter Name="security" Mode="In" Type="Int32" />
+            <Parameter Name="class" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentPermissionInsert">
+            <Parameter Name="security" Mode="In" Type="Int32" />
+            <Parameter Name="class" Mode="In" Type="Int32" />
+            <Parameter Name="permission" Mode="In" Type="Int32" />
+            <Parameter Name="print" Mode="In" Type="Int32" />
+            <Parameter Name="save" Mode="In" Type="Int32" />
+            <Parameter Name="send" Mode="In" Type="Int32" />
+            <Parameter Name="m_highlight" Mode="In" Type="Int32" />
+            <Parameter Name="m_blackout" Mode="In" Type="Int32" />
+            <Parameter Name="m_note" Mode="In" Type="Int32" />
+            <Parameter Name="ch_highlight" Mode="In" Type="Boolean" />
+            <Parameter Name="ch_blackout" Mode="In" Type="Boolean" />
+            <Parameter Name="ch_note" Mode="In" Type="Boolean" />
+            <Parameter Name="cs_mail" Mode="In" Type="Boolean" />
+            <Parameter Name="dc_release" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentPermissionsForClass" ReturnType="Collection(DocumentModel.GetDocumentPermissionsForClass_Result)">
+          <Parameter Name="class" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentsClass" ReturnType="Collection(DocumentModel.GetDocumentsClass_Result)">
+            <Parameter Name="Language" Mode="In" Type="String" />
+            <Parameter Name="SecurityObjects" Mode="In" Type="String" />
+            <Parameter Name="PrimaryAccess" Mode="In" Type="Int32" />
+            <Parameter Name="SecondaryAccess" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Document_Settings" EntityType="DocumentModel.Document_Settings" />
+          <FunctionImport Name="DocumentSettingInsert">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="value" Mode="In" Type="String" />
+            <Parameter Name="decription" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentSettingUpdate">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="value" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentClassUpdate">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="NameRU" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="DescriptionRU" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <EntitySet Name="Document_Definitions" EntityType="DocumentModel.Document_Definitions" />
+          <FunctionImport Name="DocumentClassDelete">
+          <Parameter Name="classId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentDefinitionDelete">
+          <Parameter Name="definitionId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentDefinitionInsert">
+            <Parameter Name="name_pl" Mode="In" Type="String" />
+            <Parameter Name="description_pl" Mode="In" Type="String" />
+            <Parameter Name="name_ru" Mode="In" Type="String" />
+            <Parameter Name="description_ru" Mode="In" Type="String" />
+            <Parameter Name="datatype" Mode="In" Type="Byte" />
+            <Parameter Name="items" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentDefinitions" ReturnType="Collection(DocumentModel.GetDocumentDefinitions_Result)">
+          <Parameter Name="Language" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Document_DataTypes_Enum" EntityType="DocumentModel.Document_DataTypes_Enum" />
+          <FunctionImport Name="DocumentDefinitionUpdate">
+            <Parameter Name="definitionId" Mode="In" Type="Int32" />
+            <Parameter Name="name_pl" Mode="In" Type="String" />
+            <Parameter Name="description_pl" Mode="In" Type="String" />
+            <Parameter Name="name_ru" Mode="In" Type="String" />
+            <Parameter Name="description_ru" Mode="In" Type="String" />
+            <Parameter Name="items" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentDataTypes">
+          <Parameter Name="language" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Oznaczenia" EntityType="DocumentModel.Oznaczenia" />
+          <FunctionImport Name="DocumentPermissionModify">
+            <Parameter Name="security" Mode="In" Type="Int32" />
+            <Parameter Name="class" Mode="In" Type="Int32" />
+            <Parameter Name="permission" Mode="In" Type="Int32" />
+            <Parameter Name="print" Mode="In" Type="Int32" />
+            <Parameter Name="save" Mode="In" Type="Int32" />
+            <Parameter Name="send" Mode="In" Type="Int32" />
+            <Parameter Name="m_highlight" Mode="In" Type="Int32" />
+            <Parameter Name="m_blackout" Mode="In" Type="Int32" />
+            <Parameter Name="m_note" Mode="In" Type="Int32" />
+            <Parameter Name="ch_highlight" Mode="In" Type="Boolean" />
+            <Parameter Name="ch_blackout" Mode="In" Type="Boolean" />
+            <Parameter Name="ch_note" Mode="In" Type="Boolean" />
+            <Parameter Name="cs_mail" Mode="In" Type="Boolean" />
+            <Parameter Name="dc_release" Mode="In" Type="Boolean" />
+            <Parameter Name="insertMissedOnly" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentPermissionsFillDefaultForClass">
+          <Parameter Name="classId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentPermissionsFillDefaultFull" />
+          <FunctionImport Name="DocumentPermissionUpdate">
+            <Parameter Name="security" Mode="In" Type="Int32" />
+            <Parameter Name="class" Mode="In" Type="Int32" />
+            <Parameter Name="permission" Mode="In" Type="Int32" />
+            <Parameter Name="print" Mode="In" Type="Int32" />
+            <Parameter Name="save" Mode="In" Type="Int32" />
+            <Parameter Name="send" Mode="In" Type="Int32" />
+            <Parameter Name="m_highlight" Mode="In" Type="Int32" />
+            <Parameter Name="m_blackout" Mode="In" Type="Int32" />
+            <Parameter Name="m_note" Mode="In" Type="Int32" />
+            <Parameter Name="ch_highlight" Mode="In" Type="Boolean" />
+            <Parameter Name="ch_blackout" Mode="In" Type="Boolean" />
+            <Parameter Name="ch_note" Mode="In" Type="Boolean" />
+            <Parameter Name="cs_mail" Mode="In" Type="Boolean" />
+            <Parameter Name="dc_release" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="PobierzOznaczenia" ReturnType="Collection(DocumentModel.PobierzOznaczenia_Result)">
+            <Parameter Name="DocumentId" Mode="In" Type="Int64" />
+            <Parameter Name="ClassId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="WyczyscOznaczeniaZeSkanu">
+            <Parameter Name="DocumentId" Mode="In" Type="Int64" />
+            <Parameter Name="ClassId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ZapiszOznaczenie">
+            <Parameter Name="DocumentId" Mode="In" Type="Int64" />
+            <Parameter Name="ClassId" Mode="In" Type="Int32" />
+            <Parameter Name="Typ" Mode="In" Type="Int32" />
+            <Parameter Name="Strona" Mode="In" Type="Int32" />
+            <Parameter Name="Pozycja" Mode="In" Type="Int32" />
+            <Parameter Name="Left" Mode="In" Type="Double" />
+            <Parameter Name="Top" Mode="In" Type="Double" />
+            <Parameter Name="Width" Mode="In" Type="Double" />
+            <Parameter Name="Height" Mode="In" Type="Double" />
+            <Parameter Name="Text" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentPermissionSimpleUpdate">
+            <Parameter Name="security" Mode="In" Type="Int32" />
+            <Parameter Name="class" Mode="In" Type="Int32" />
+            <Parameter Name="field" Mode="In" Type="String" />
+            <Parameter Name="value" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentClassPermission" ReturnType="Collection(DocumentModel.GetDocumentClassPermission_Result)">
+            <Parameter Name="security" Mode="In" Type="String" />
+            <Parameter Name="class" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentPath" ReturnType="Collection(String)">
+            <Parameter Name="documentId" Mode="In" Type="Int64" />
+            <Parameter Name="classId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Document_PermissionsTypes_Enum" EntityType="DocumentModel.Document_PermissionsTypes_Enum" />
+          <EntitySet Name="Document_Security" EntityType="DocumentModel.Document_Security" />
+          <AssociationSet Name="FK_Document_Permissions_Document_SecurityGroups" Association="DocumentModel.FK_Document_Permissions_Document_SecurityGroups">
+            <End Role="Document_Security" EntitySet="Document_Security" />
+            <End Role="Document_Permissions" EntitySet="Document_Permissions" />
+          </AssociationSet>
+          <FunctionImport Name="DocumentSecurityDelete">
+          <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentSecurityInsert">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="Boolean" />
+            <Parameter Name="Admin" Mode="In" Type="Boolean" />
+            <Parameter Name="Group" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentSecurityUpdate">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Active" Mode="In" Type="Boolean" />
+            <Parameter Name="Admin" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentPermissionsForSecurity" ReturnType="Collection(DocumentModel.GetDocumentPermissionsForSecurity_Result)">
+          <Parameter Name="security" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentSecurity" ReturnType="Collection(DocumentModel.GetDocumentSecurity_Result)" >
+            <Parameter Name="groupTitle" Mode="In" Type="String" />
+            <Parameter Name="userTitle" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetClassPermissionsVector" ReturnType="Collection(DocumentModel.GetClassPermissionsVector_Result)">
+            <Parameter Name="SecurityObjects" Mode="In" Type="String" />
+            <Parameter Name="class" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Document_DefinitionList_Items" EntityType="DocumentModel.Document_DefinitionList_Items" />
+          <EntitySet Name="Document_DefinitionPerClass" EntityType="DocumentModel.Document_DefinitionPerClass" />
+          <EntitySet Name="Document_ListItems_Permissions" EntityType="DocumentModel.Document_ListItems_Permissions" />
+          <AssociationSet Name="FK_Document_DefinitionsPerClass_Document_Class" Association="DocumentModel.FK_Document_DefinitionsPerClass_Document_Class">
+            <End Role="Document_Class" EntitySet="Document_Class" />
+            <End Role="Document_DefinitionPerClass" EntitySet="Document_DefinitionPerClass" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_DefinitionList_Items_Document_Definitions" Association="DocumentModel.FK_Document_DefinitionList_Items_Document_Definitions">
+            <End Role="Document_Definitions" EntitySet="Document_Definitions" />
+            <End Role="Document_DefinitionList_Items" EntitySet="Document_DefinitionList_Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_ListItems_Permissions_Document_DefinitionList_Items" Association="DocumentModel.FK_Document_ListItems_Permissions_Document_DefinitionList_Items">
+            <End Role="Document_DefinitionList_Items" EntitySet="Document_DefinitionList_Items" />
+            <End Role="Document_ListItems_Permissions" EntitySet="Document_ListItems_Permissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_DefinitionsPerClass_Document_Definitions" Association="DocumentModel.FK_Document_DefinitionsPerClass_Document_Definitions">
+            <End Role="Document_Definitions" EntitySet="Document_Definitions" />
+            <End Role="Document_DefinitionPerClass" EntitySet="Document_DefinitionPerClass" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_ListItems_Permissions_Document_Security" Association="DocumentModel.FK_Document_ListItems_Permissions_Document_Security">
+            <End Role="Document_Security" EntitySet="Document_Security" />
+            <End Role="Document_ListItems_Permissions" EntitySet="Document_ListItems_Permissions" />
+          </AssociationSet>
+          <FunctionImport Name="DocumentDefinitionListItemsDelete">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentDefinitionListItemsInsert">
+            <Parameter Name="definitionId" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="active" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentDefinitionListItemsUpdate">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="definitionId" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="active" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentDefinitionPerClassDelete">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentDefinitionPerClassInsert">
+            <Parameter Name="classId" Mode="In" Type="Int32" />
+            <Parameter Name="definitionId" Mode="In" Type="Int32" />
+            <Parameter Name="required" Mode="In" Type="Boolean" />
+            <Parameter Name="active" Mode="In" Type="Boolean" />
+            <Parameter Name="default" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentListItemsPermissionsDelete">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentListItemsPermissionsInsert">
+            <Parameter Name="itemId" Mode="In" Type="Int32" />
+            <Parameter Name="classId" Mode="In" Type="Int32" />
+            <Parameter Name="securityId" Mode="In" Type="Int32" />
+            <Parameter Name="permission" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentListItemsPermissionsUpdate">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="permission" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentPermissionsFillDefaultForSecurity">
+          <Parameter Name="security" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK_Document_ListItems_Permissions_Document_Class" Association="DocumentModel.FK_Document_ListItems_Permissions_Document_Class">
+            <End Role="Document_Class" EntitySet="Document_Class" />
+            <End Role="Document_ListItems_Permissions" EntitySet="Document_ListItems_Permissions" />
+          </AssociationSet>
+          <FunctionImport Name="GetDocumentDefinitionsForClass" ReturnType="Collection(DocumentModel.GetDocumentDefinitionsForClass_Result)">
+            <Parameter Name="Language" Mode="In" Type="String" />
+            <Parameter Name="ClassId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentDefinitionsByDirective" ReturnType="Collection(DocumentModel.GetDocumentDefinitionsByDirective_Result)">
+            <Parameter Name="Language" Mode="In" Type="String" />
+            <Parameter Name="ClassId" Mode="In" Type="Int32" />
+            <Parameter Name="directive" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DocumentDefinitionPerClassUpdate">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="required" Mode="In" Type="Boolean" />
+            <Parameter Name="active" Mode="In" Type="Boolean" />
+            <Parameter Name="default" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentsClassByAssignedDefinition" ReturnType="Collection(DocumentModel.GetDocumentsClassByAssignedDefinition_Result)">
+            <Parameter Name="Language" Mode="In" Type="String" />
+            <Parameter Name="DefinitionId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentListItemsPermissions" ReturnType="Collection(DocumentModel.GetDocumentListItemsPermissions_Result)">
+            <Parameter Name="definitionId" Mode="In" Type="Int32" />
+            <Parameter Name="classId" Mode="In" Type="Int32" />
+            <Parameter Name="security" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentDefinitionListItems" ReturnType="Collection(DocumentModel.GetDocumentDefinitionListItems_Result)">
+          <Parameter Name="definitionId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentListItemsPermissionsToSelect" ReturnType="Collection(DocumentModel.GetDocumentListItemsPermissionsToSelect_Result)">
+            <Parameter Name="classId" Mode="In" Type="Int32" />
+            <Parameter Name="security" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ACT_DeleteAssign">
+            <Parameter Name="DocumentId" Mode="In" Type="Int64" />
+            <Parameter Name="ClassId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ACT_UpdateAssign">
+            <Parameter Name="DocumentId" Mode="In" Type="Int64" />
+            <Parameter Name="ClassId" Mode="In" Type="Int32" />
+            <Parameter Name="NewDocumentId" Mode="In" Type="Int64" />
+            <Parameter Name="NewClassId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ACT_UpdateOznaczeniaId">
+            <Parameter Name="DocumentId" Mode="In" Type="Int64" />
+            <Parameter Name="ClassId" Mode="In" Type="Int32" />
+            <Parameter Name="NewDocumentId" Mode="In" Type="Int64" />
+            <Parameter Name="NewClassId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetSecondaryDocuments">
+            <Parameter Name="classId" Mode="In" Type="Int32" />
+            <Parameter Name="documentId" Mode="In" Type="Int64" />
+            <Parameter Name="language" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetDocumentClassPermission2">
+            <Parameter Name="security" Mode="In" Type="String" />
+            <Parameter Name="class" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="LOG_DodajLog">
+            <Parameter Name="typ" Mode="In" Type="String" />
+            <Parameter Name="login" Mode="In" Type="String" />
+            <Parameter Name="opis" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="LOG_Dokument_DodajAktualizacje">
+            <Parameter Name="idKlasy" Mode="In" Type="Int32" />
+            <Parameter Name="idDokumentu" Mode="In" Type="Int64" />
+            <Parameter Name="kolumna" Mode="In" Type="String" />
+            <Parameter Name="staraWartosc" Mode="In" Type="String" />
+            <Parameter Name="nowaWartosc" Mode="In" Type="String" />
+            <Parameter Name="login" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="LOG_Dokument_DodajDostep">
+            <Parameter Name="idKlasy" Mode="In" Type="Int32" />
+            <Parameter Name="idDokumentu" Mode="In" Type="Int64" />
+            <Parameter Name="login" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Document_Permissions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Document_Class" Relationship="DocumentModel.FK_Document_Permissions_Document_Class" FromRole="Document_Permissions" ToRole="Document_Class" />
+          <Property Name="AccessLevel" Type="Int32" />
+          <Property Name="O_Print" Type="Int32" />
+          <Property Name="O_Save" Type="Int32" />
+          <Property Name="O_Send" Type="Int32" />
+          <Property Name="M_Highlight" Type="Int32" />
+          <Property Name="M_Blackout" Type="Int32" />
+          <Property Name="M_Note" Type="Int32" />
+          <Property Name="CH_Highlight" Type="Boolean" />
+          <Property Name="CH_Blackout" Type="Boolean" />
+          <Property Name="CH_Note" Type="Boolean" />
+          <Property Name="SecurityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Document_Security" Relationship="DocumentModel.FK_Document_Permissions_Document_SecurityGroups" FromRole="Document_Permissions" ToRole="Document_Security" />
+          <Property Name="CS_Mail" Type="Boolean" />
+          <Property Name="DC_Release" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_Document_Permissions_Document_Class">
+          <End Type="DocumentModel.Document_Class" Role="Document_Class" Multiplicity="1" />
+          <End Type="DocumentModel.Document_Permissions" Role="Document_Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_Permissions">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetDocumentPermissionsForClass_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="Int32" Name="ClassId" Nullable="false" />
+          <Property Type="Int32" Name="SecurityLevel" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetDocumentsClass_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Create_Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Create_User" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Edit_Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Edit_User" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Document_Settings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="127" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="127" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Document_Definitions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataType" Type="Byte" />
+          <Property Name="Name_PL" Type="String" MaxLength="127" FixedLength="false" Unicode="true" />
+          <Property Name="Name_RU" Type="String" MaxLength="127" FixedLength="false" Unicode="true" />
+          <Property Name="Description_RU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description_PL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Document_DefinitionList_Items" Relationship="DocumentModel.FK_Document_DefinitionList_Items_Document_Definitions" FromRole="Document_Definitions" ToRole="Document_DefinitionList_Items" />
+          <NavigationProperty Name="Document_DefinitionPerClass" Relationship="DocumentModel.FK_Document_DefinitionsPerClass_Document_Definitions" FromRole="Document_Definitions" ToRole="Document_DefinitionPerClass" />
+          <Property Name="Items" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="GetDocumentDefinitions_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Byte" Name="DataType" Nullable="true" />
+          <Property Type="String" Name="Items" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="CurrentName" Nullable="true" MaxLength="127" />
+          <Property Type="String" Name="CurrentDescription" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Name_PL" Nullable="true" MaxLength="127" />
+          <Property Type="String" Name="Name_RU" Nullable="true" MaxLength="127" />
+          <Property Type="String" Name="Description_PL" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Description_RU" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="CurrentName_Type" Nullable="true" MaxLength="385" />
+          </ComplexType>
+        <EntityType Name="Document_DataTypes_Enum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeValue" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Name_PL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Name_RU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Oznaczenia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Class_Id" Type="Int32" Nullable="false" />
+          <Property Name="Document_Id" Type="Int64" Nullable="false" />
+          <Property Name="Typ" Type="Int32" Nullable="false" />
+          <Property Name="Strona" Type="Int32" Nullable="false" />
+          <Property Name="Pozycja" Type="Int32" Nullable="false" />
+          <Property Name="Left" Type="Double" Nullable="false" />
+          <Property Name="Top" Type="Double" Nullable="false" />
+          <Property Name="Width" Type="Double" Nullable="false" />
+          <Property Name="Height" Type="Double" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="PobierzOznaczenia_Result">
+          <Property Type="Int32" Name="Strona" Nullable="false" />
+          <Property Type="Int32" Name="Pozycja" Nullable="false" />
+          <Property Type="Int32" Name="Typ" Nullable="false" />
+          <Property Type="Double" Name="Left" Nullable="false" />
+          <Property Type="Double" Name="Top" Nullable="false" />
+          <Property Type="Double" Name="Width" Nullable="false" />
+          <Property Type="Double" Name="Height" Nullable="false" />
+          <Property Type="String" Name="Column1" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetDocumentClassPermission_Result">
+          <Property Type="Int32" Name="O_Print" Nullable="true" />
+          <Property Type="Int32" Name="O_Save" Nullable="true" />
+          <Property Type="Int32" Name="O_Send" Nullable="true" />
+          <Property Type="Int32" Name="M_Highlight" Nullable="true" />
+          <Property Type="Int32" Name="M_Blackout" Nullable="true" />
+          <Property Type="Int32" Name="M_Note" Nullable="true" />
+          <Property Type="Boolean" Name="CH_Highlight" Nullable="true" />
+          <Property Type="Boolean" Name="CH_Blackout" Nullable="true" />
+          <Property Type="Boolean" Name="CH_Note" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Document_PermissionsTypes_Enum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccessObject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AccessType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AccessValue" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Document_Security">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Admin" Type="Boolean" />
+          <Property Name="IsGroup" Type="Boolean" />
+          <NavigationProperty Name="Document_Permissions" Relationship="DocumentModel.FK_Document_Permissions_Document_SecurityGroups" FromRole="Document_Security" ToRole="Document_Permissions" />
+          <NavigationProperty Name="Document_ListItems_Permissions" Relationship="DocumentModel.FK_Document_ListItems_Permissions_Document_Security" FromRole="Document_Security" ToRole="Document_ListItems_Permissions" />
+        </EntityType>
+        <Association Name="FK_Document_Permissions_Document_SecurityGroups">
+          <End Type="DocumentModel.Document_Security" Role="Document_Security" Multiplicity="1" />
+          <End Type="DocumentModel.Document_Permissions" Role="Document_Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Security">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_Permissions">
+              <PropertyRef Name="SecurityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetDocumentPermissionsForSecurity_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="SecurityId" Nullable="false" />
+          <Property Type="Int32" Name="ClassId" Nullable="false" />
+          <Property Type="Int32" Name="AccessLevel" Nullable="true" />
+          <Property Type="Int32" Name="O_Print" Nullable="true" />
+          <Property Type="Int32" Name="O_Save" Nullable="true" />
+          <Property Type="Int32" Name="O_Send" Nullable="true" />
+          <Property Type="Int32" Name="M_Highlight" Nullable="true" />
+          <Property Type="Int32" Name="M_Blackout" Nullable="true" />
+          <Property Type="Int32" Name="M_Note" Nullable="true" />
+          <Property Type="Boolean" Name="CH_Highlight" Nullable="true" />
+          <Property Type="Boolean" Name="CH_Blackout" Nullable="true" />
+          <Property Type="Boolean" Name="CH_Note" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetDocumentSecurity_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="255" />
+          <Property Type="Boolean" Name="Active" Nullable="true" />
+          <Property Type="Boolean" Name="Admin" Nullable="true" />
+          <Property Type="Boolean" Name="IsGroup" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Document_DefinitionList_Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DefinitionId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Document_Definitions" Relationship="DocumentModel.FK_Document_DefinitionList_Items_Document_Definitions" FromRole="Document_DefinitionList_Items" ToRole="Document_Definitions" />
+          <NavigationProperty Name="Document_ListItems_Permissions" Relationship="DocumentModel.FK_Document_ListItems_Permissions_Document_DefinitionList_Items" FromRole="Document_DefinitionList_Items" ToRole="Document_ListItems_Permissions" />
+          <Property Name="Active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Document_DefinitionPerClass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassId" Type="Int32" Nullable="false" />
+          <Property Name="DefinitionId" Type="Int32" Nullable="false" />
+          <Property Name="ColumnName" Type="String" MaxLength="127" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultValue" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsRequired" Type="Boolean" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Deactivate_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Document_Class" Relationship="DocumentModel.FK_Document_DefinitionsPerClass_Document_Class" FromRole="Document_DefinitionPerClass" ToRole="Document_Class" />
+          <NavigationProperty Name="Document_Definitions" Relationship="DocumentModel.FK_Document_DefinitionsPerClass_Document_Definitions" FromRole="Document_DefinitionPerClass" ToRole="Document_Definitions" />
+        </EntityType>
+        <EntityType Name="Document_ListItems_Permissions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="ClassId" Type="Int32" Nullable="false" />
+          <Property Name="SecurityId" Type="Int32" Nullable="false" />
+          <Property Name="Permission" Type="Boolean" />
+          <NavigationProperty Name="Document_DefinitionList_Items" Relationship="DocumentModel.FK_Document_ListItems_Permissions_Document_DefinitionList_Items" FromRole="Document_ListItems_Permissions" ToRole="Document_DefinitionList_Items" />
+          <NavigationProperty Name="Document_Security" Relationship="DocumentModel.FK_Document_ListItems_Permissions_Document_Security" FromRole="Document_ListItems_Permissions" ToRole="Document_Security" />
+          <NavigationProperty Name="Document_Class" Relationship="DocumentModel.FK_Document_ListItems_Permissions_Document_Class" FromRole="Document_ListItems_Permissions" ToRole="Document_Class" />
+        </EntityType>
+        <Association Name="FK_Document_DefinitionsPerClass_Document_Class">
+          <End Type="DocumentModel.Document_Class" Role="Document_Class" Multiplicity="1" />
+          <End Type="DocumentModel.Document_DefinitionPerClass" Role="Document_DefinitionPerClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_DefinitionPerClass">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_DefinitionList_Items_Document_Definitions">
+          <End Type="DocumentModel.Document_Definitions" Role="Document_Definitions" Multiplicity="1" />
+          <End Type="DocumentModel.Document_DefinitionList_Items" Role="Document_DefinitionList_Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Definitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_DefinitionList_Items">
+              <PropertyRef Name="DefinitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_ListItems_Permissions_Document_DefinitionList_Items">
+          <End Type="DocumentModel.Document_DefinitionList_Items" Role="Document_DefinitionList_Items" Multiplicity="1" />
+          <End Type="DocumentModel.Document_ListItems_Permissions" Role="Document_ListItems_Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_DefinitionList_Items">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_ListItems_Permissions">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_DefinitionsPerClass_Document_Definitions">
+          <End Type="DocumentModel.Document_Definitions" Role="Document_Definitions" Multiplicity="1" />
+          <End Type="DocumentModel.Document_DefinitionPerClass" Role="Document_DefinitionPerClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Definitions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_DefinitionPerClass">
+              <PropertyRef Name="DefinitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_ListItems_Permissions_Document_Security">
+          <End Type="DocumentModel.Document_Security" Role="Document_Security" Multiplicity="1" />
+          <End Type="DocumentModel.Document_ListItems_Permissions" Role="Document_ListItems_Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Security">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_ListItems_Permissions">
+              <PropertyRef Name="SecurityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Document_ListItems_Permissions_Document_Class">
+          <End Type="DocumentModel.Document_Class" Role="Document_Class" Multiplicity="1" />
+          <End Type="DocumentModel.Document_ListItems_Permissions" Role="Document_ListItems_Permissions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Document_Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Document_ListItems_Permissions">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetDocumentDefinitionsForClass_Result">
+          <Property Type="Int32" Name="DefinitionId" Nullable="false" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="ClassId" Nullable="false" />
+          <Property Type="Boolean" Name="IsRequired" Nullable="true" />
+          <Property Type="Byte" Name="DataType" Nullable="true" />
+          <Property Type="String" Name="ColumnName" Nullable="true" MaxLength="127" />
+          <Property Type="String" Name="ListItemColumnName" Nullable="true" MaxLength="129" />
+          <Property Type="String" Name="DefaultValue" Nullable="true" MaxLength="255" />
+          <Property Type="Boolean" Name="Active" Nullable="true" />
+          <Property Type="DateTime" Name="Deactivate_Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Items" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="CurrentName" Nullable="true" MaxLength="127" />
+          <Property Type="String" Name="CurrentDescription" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Name_PL" Nullable="true" MaxLength="127" />
+          <Property Type="String" Name="Name_RU" Nullable="true" MaxLength="127" />
+          <Property Type="String" Name="Description_PL" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Description_RU" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="CurrentName_Type" Nullable="true" MaxLength="385" />
+        </ComplexType>
+        <ComplexType Name="GetDocumentDefinitionsByDirective_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Byte" Name="DataType" Nullable="true" />
+          <Property Type="String" Name="Items" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="CurrentName" Nullable="true" MaxLength="127" />
+          <Property Type="String" Name="CurrentDescription" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Name_PL" Nullable="true" MaxLength="127" />
+          <Property Type="String" Name="Name_RU" Nullable="true" MaxLength="127" />
+          <Property Type="String" Name="Description_PL" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Description_RU" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="CurrentName_Type" Nullable="true" MaxLength="385" />
+        </ComplexType>
+        <ComplexType Name="GetDocumentsClassByAssignedDefinition_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="127" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="255" />
+          <Property Type="DateTime" Name="Create_Date" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Create_User" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Edit_Date" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Edit_User" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Table_Name" Nullable="true" MaxLength="20" />
+          <Property Type="Boolean" Name="Active" Nullable="true" />
+          <Property Type="DateTime" Name="Deactivate_Date" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="GetDocumentListItemsPermissions_Result">
+          <Property Type="Int32" Name="PermissionId" Nullable="true" />
+          <Property Type="Int32" Name="ClassId" Nullable="true" />
+          <Property Type="Int32" Name="SecurityId" Nullable="true" />
+          <Property Type="Boolean" Name="Permission" Nullable="true" />
+          <Property Type="Int32" Name="ItemId" Nullable="false" />
+          <Property Type="Int32" Name="DefinitionId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="GetDocumentDefinitionListItems_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="DefinitionId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="GetDocumentListItemsPermissionsToSelect_Result">
+          <Property Type="String" Name="ColumnName" Nullable="true" MaxLength="127" />
+          <Property Type="Int32" Name="DefinitionId" Nullable="false" />
+          <Property Type="Int32" Name="ItemId" Nullable="false" />
+          <Property Type="Boolean" Name="Permission" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetClassPermissionsVector_Result">
+          <Property Type="Int32" Name="Permission" Nullable="false" />
+          <Property Type="Boolean" Name="Release" Nullable="true" />
+          <Property Type="Boolean" Name="MailOnRelease" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DocumentModelStoreContainer" CdmEntityContainer="DocContext">
+          <EntitySetMapping Name="Document_Class">
+            <EntityTypeMapping TypeName="DocumentModel.Document_Class">
+              <MappingFragment StoreEntitySet="Document_Class">
+                <ScalarProperty Name="Deactivate_Date" ColumnName="Deactivate_Date" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Table_Name" ColumnName="Table_Name" />
+                <ScalarProperty Name="Description_RU" ColumnName="Description_RU" />
+                <ScalarProperty Name="Name_RU" ColumnName="Name_RU" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Edit_Date" ColumnName="Edit_Date" />
+                <ScalarProperty Name="Edit_User" ColumnName="Edit_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DocumentModel.Document_Class">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DocumentModel.Store.DocumentClassInsert">
+                  <ScalarProperty Name="Description_RU" ParameterName="DescriptionRU" />
+                  <ScalarProperty Name="Name_RU" ParameterName="NameRU" />
+                  <ScalarProperty Name="Description" ParameterName="Description" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="DocumentModel.Store.DocumentClassUpdate">
+                  <ScalarProperty Name="Active" ParameterName="Active" Version="Current" />
+                  <ScalarProperty Name="Description_RU" ParameterName="DescriptionRU" Version="Current" />
+                  <ScalarProperty Name="Name_RU" ParameterName="NameRU" Version="Current" />
+                  <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="DocumentModel.Store.DocumentClassDelete" >
+                  <ScalarProperty Name="Id" ParameterName="classId" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DocumentClassInsert" FunctionName="DocumentModel.Store.DocumentClassInsert" />
+          <EntitySetMapping Name="Document_Permissions">
+            <EntityTypeMapping TypeName="DocumentModel.Document_Permissions">
+              <MappingFragment StoreEntitySet="Document_Permissions">
+                <ScalarProperty Name="DC_Release" ColumnName="DC_Release" />
+                <ScalarProperty Name="CS_Mail" ColumnName="CS_Mail" />
+                <ScalarProperty Name="SecurityId" ColumnName="SecurityId" />
+                <ScalarProperty Name="CH_Note" ColumnName="CH_Note" />
+                <ScalarProperty Name="CH_Blackout" ColumnName="CH_Blackout" />
+                <ScalarProperty Name="CH_Highlight" ColumnName="CH_Highlight" />
+                <ScalarProperty Name="M_Note" ColumnName="M_Note" />
+                <ScalarProperty Name="M_Blackout" ColumnName="M_Blackout" />
+                <ScalarProperty Name="M_Highlight" ColumnName="M_Highlight" />
+                <ScalarProperty Name="O_Send" ColumnName="O_Send" />
+                <ScalarProperty Name="O_Save" ColumnName="O_Save" />
+                <ScalarProperty Name="O_Print" ColumnName="O_Print" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DocumentModel.Document_Permissions">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DocumentModel.Store.DocumentPermissionInsert" >
+                  <ScalarProperty Name="DC_Release" ParameterName="dc_release" />
+                  <ScalarProperty Name="CS_Mail" ParameterName="cs_mail" />
+                  <ScalarProperty Name="SecurityId" ParameterName="security" />
+                  <ScalarProperty Name="CH_Note" ParameterName="ch_note" />
+                  <ScalarProperty Name="CH_Blackout" ParameterName="ch_blackout" />
+                  <ScalarProperty Name="CH_Highlight" ParameterName="ch_highlight" />
+                  <ScalarProperty Name="M_Note" ParameterName="m_note" />
+                  <ScalarProperty Name="M_Blackout" ParameterName="m_blackout" />
+                  <ScalarProperty Name="M_Highlight" ParameterName="m_highlight" />
+                  <ScalarProperty Name="O_Send" ParameterName="send" />
+                  <ScalarProperty Name="O_Save" ParameterName="save" />
+                  <ScalarProperty Name="O_Print" ParameterName="print" />
+                  <ScalarProperty Name="AccessLevel" ParameterName="permission" />
+                  <ScalarProperty Name="ClassId" ParameterName="class" />
+                </InsertFunction>
+                <DeleteFunction FunctionName="DocumentModel.Store.DocumentPermissionDelete" >
+                  <ScalarProperty Name="SecurityId" ParameterName="security" />
+                  <ScalarProperty Name="ClassId" ParameterName="class" />
+                </DeleteFunction>
+                <UpdateFunction FunctionName="DocumentModel.Store.DocumentPermissionUpdate" >
+                  <ScalarProperty Name="DC_Release" ParameterName="dc_release" Version="Current" />
+                  <ScalarProperty Name="CS_Mail" ParameterName="cs_mail" Version="Current" />
+                  <ScalarProperty Name="SecurityId" ParameterName="security" Version="Current" />
+                  <ScalarProperty Name="CH_Note" ParameterName="ch_note" Version="Current" />
+                  <ScalarProperty Name="CH_Blackout" ParameterName="ch_blackout" Version="Current" />
+                  <ScalarProperty Name="CH_Highlight" ParameterName="ch_highlight" Version="Current" />
+                  <ScalarProperty Name="M_Note" ParameterName="m_note" Version="Current" />
+                  <ScalarProperty Name="M_Blackout" ParameterName="m_blackout" Version="Current" />
+                  <ScalarProperty Name="M_Highlight" ParameterName="m_highlight" Version="Current" />
+                  <ScalarProperty Name="O_Send" ParameterName="send" Version="Current" />
+                  <ScalarProperty Name="O_Save" ParameterName="save" Version="Current" />
+                  <ScalarProperty Name="O_Print" ParameterName="print" Version="Current" />
+                  <ScalarProperty Name="AccessLevel" ParameterName="permission" Version="Current" />
+                  <ScalarProperty Name="ClassId" ParameterName="class" Version="Current" />
+                </UpdateFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DocumentPermissionDelete" FunctionName="DocumentModel.Store.DocumentPermissionDelete" />
+          <FunctionImportMapping FunctionImportName="DocumentPermissionInsert" FunctionName="DocumentModel.Store.DocumentPermissionInsert" />
+          <FunctionImportMapping FunctionImportName="GetDocumentPermissionsForClass" FunctionName="DocumentModel.Store.GetDocumentPermissionsForClass">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.GetDocumentPermissionsForClass_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="SecurityLevel" ColumnName="SecurityLevel" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetDocumentsClass" FunctionName="DocumentModel.Store.GetDocumentsClass">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.GetDocumentsClass_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Edit_Date" ColumnName="Edit_Date" />
+                <ScalarProperty Name="Edit_User" ColumnName="Edit_User" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Document_Settings">
+            <EntityTypeMapping TypeName="DocumentModel.Document_Settings">
+              <MappingFragment StoreEntitySet="Document_Settings">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DocumentModel.Document_Settings">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DocumentModel.Store.DocumentSettingInsert" >
+                  <ScalarProperty Name="Description" ParameterName="decription" />
+                  <ScalarProperty Name="Value" ParameterName="value" />
+                  <ScalarProperty Name="Name" ParameterName="name" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="DocumentModel.Store.DocumentSettingInsert" >
+                  <ScalarProperty Name="Description" ParameterName="decription" Version="Current" />
+                  <ScalarProperty Name="Value" ParameterName="value" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="name" Version="Current" />
+                </UpdateFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DocumentSettingInsert" FunctionName="DocumentModel.Store.DocumentSettingInsert" />
+          <FunctionImportMapping FunctionImportName="DocumentSettingUpdate" FunctionName="DocumentModel.Store.DocumentSettingUpdate" />
+          <FunctionImportMapping FunctionImportName="DocumentClassUpdate" FunctionName="DocumentModel.Store.DocumentClassUpdate" />
+          <EntitySetMapping Name="Document_Definitions">
+            <EntityTypeMapping TypeName="DocumentModel.Document_Definitions">
+              <MappingFragment StoreEntitySet="Document_Definitions">
+                <ScalarProperty Name="Items" ColumnName="Items" />
+                <ScalarProperty Name="Description_PL" ColumnName="Description_PL" />
+                <ScalarProperty Name="Description_RU" ColumnName="Description_RU" />
+                <ScalarProperty Name="Name_RU" ColumnName="Name_RU" />
+                <ScalarProperty Name="Name_PL" ColumnName="Name_PL" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DocumentModel.Document_Definitions">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DocumentModel.Store.DocumentDefinitionInsert" >
+                  <ScalarProperty Name="Items" ParameterName="items" />
+                  <ScalarProperty Name="Description_PL" ParameterName="description_pl" />
+                  <ScalarProperty Name="Description_RU" ParameterName="description_ru" />
+                  <ScalarProperty Name="Name_RU" ParameterName="name_ru" />
+                  <ScalarProperty Name="Name_PL" ParameterName="name_pl" />
+                  <ScalarProperty Name="DataType" ParameterName="datatype" />
+                  </InsertFunction>
+                <DeleteFunction FunctionName="DocumentModel.Store.DocumentDefinitionDelete" >
+                  <ScalarProperty Name="Id" ParameterName="definitionId" />
+                </DeleteFunction>
+                <UpdateFunction FunctionName="DocumentModel.Store.DocumentDefinitionUpdate" >
+                  <ScalarProperty Name="Items" ParameterName="items" Version="Current" />
+                  <ScalarProperty Name="Description_RU" ParameterName="description_ru" Version="Current" />
+                  <ScalarProperty Name="Name_RU" ParameterName="name_ru" Version="Current" />
+                  <ScalarProperty Name="Description_PL" ParameterName="description_pl" Version="Current" />
+                  <ScalarProperty Name="Name_PL" ParameterName="name_pl" Version="Current" />
+                  <ScalarProperty Name="Id" ParameterName="definitionId" Version="Current" />
+                </UpdateFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DocumentClassDelete" FunctionName="DocumentModel.Store.DocumentClassDelete" />
+          <FunctionImportMapping FunctionImportName="DocumentDefinitionDelete" FunctionName="DocumentModel.Store.DocumentDefinitionDelete" />
+          <FunctionImportMapping FunctionImportName="DocumentDefinitionInsert" FunctionName="DocumentModel.Store.DocumentDefinitionInsert" />
+          <FunctionImportMapping FunctionImportName="GetDocumentDefinitions" FunctionName="DocumentModel.Store.GetDocumentDefinitions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.GetDocumentDefinitions_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="Items" ColumnName="Items" />
+                <ScalarProperty Name="CurrentName" ColumnName="CurrentName" />
+                <ScalarProperty Name="CurrentDescription" ColumnName="CurrentDescription" />
+                <ScalarProperty Name="Name_PL" ColumnName="Name_PL" />
+                <ScalarProperty Name="Name_RU" ColumnName="Name_RU" />
+                <ScalarProperty Name="Description_PL" ColumnName="Description_PL" />
+                <ScalarProperty Name="Description_RU" ColumnName="Description_RU" />
+                <ScalarProperty Name="CurrentName_Type" ColumnName="CurrentName_Type" />
+                </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Document_DataTypes_Enum">
+            <EntityTypeMapping TypeName="DocumentModel.Document_DataTypes_Enum">
+              <MappingFragment StoreEntitySet="Document_DataTypes_Enum">
+                <ScalarProperty Name="Name_RU" ColumnName="Name_RU" />
+                <ScalarProperty Name="Name_PL" ColumnName="Name_PL" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TypeValue" ColumnName="TypeValue" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DocumentDefinitionUpdate" FunctionName="DocumentModel.Store.DocumentDefinitionUpdate" />
+          <FunctionImportMapping FunctionImportName="GetDocumentDataTypes" FunctionName="DocumentModel.Store.GetDocumentDataTypes" />
+          <EntitySetMapping Name="Oznaczenia">
+            <EntityTypeMapping TypeName="DocumentModel.Oznaczenia">
+              <MappingFragment StoreEntitySet="Oznaczenia">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Top" ColumnName="Top" />
+                <ScalarProperty Name="Left" ColumnName="Left" />
+                <ScalarProperty Name="Pozycja" ColumnName="Pozycja" />
+                <ScalarProperty Name="Strona" ColumnName="Strona" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
+                <ScalarProperty Name="Document_Id" ColumnName="Document_Id" />
+                <ScalarProperty Name="Class_Id" ColumnName="Class_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DocumentPermissionModify" FunctionName="DocumentModel.Store.DocumentPermissionModify" />
+          <FunctionImportMapping FunctionImportName="DocumentPermissionsFillDefaultForClass" FunctionName="DocumentModel.Store.DocumentPermissionsFillDefaultForClass" />
+          <FunctionImportMapping FunctionImportName="DocumentPermissionsFillDefaultFull" FunctionName="DocumentModel.Store.DocumentPermissionsFillDefaultFull" />
+          <FunctionImportMapping FunctionImportName="DocumentPermissionUpdate" FunctionName="DocumentModel.Store.DocumentPermissionUpdate" />
+          <FunctionImportMapping FunctionImportName="PobierzOznaczenia" FunctionName="DocumentModel.Store.PobierzOznaczenia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.PobierzOznaczenia_Result">
+                <ScalarProperty Name="Strona" ColumnName="Strona" />
+                <ScalarProperty Name="Pozycja" ColumnName="Pozycja" />
+                <ScalarProperty Name="Typ" ColumnName="Typ" />
+                <ScalarProperty Name="Left" ColumnName="Left" />
+                <ScalarProperty Name="Top" ColumnName="Top" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WyczyscOznaczeniaZeSkanu" FunctionName="DocumentModel.Store.WyczyscOznaczeniaZeSkanu" />
+          <FunctionImportMapping FunctionImportName="ZapiszOznaczenie" FunctionName="DocumentModel.Store.ZapiszOznaczenie" />
+          <FunctionImportMapping FunctionImportName="DocumentPermissionSimpleUpdate" FunctionName="DocumentModel.Store.DocumentPermissionSimpleUpdate" />
+          <FunctionImportMapping FunctionImportName="GetDocumentPath" FunctionName="DocumentModel.Store.GetDocumentPath" />
+          <EntitySetMapping Name="Document_PermissionsTypes_Enum">
+            <EntityTypeMapping TypeName="DocumentModel.Document_PermissionsTypes_Enum">
+              <MappingFragment StoreEntitySet="Document_PermissionsTypes_Enum">
+                <ScalarProperty Name="AccessValue" ColumnName="AccessValue" />
+                <ScalarProperty Name="AccessType" ColumnName="AccessType" />
+                <ScalarProperty Name="AccessObject" ColumnName="AccessObject" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Document_Security">
+            <EntityTypeMapping TypeName="DocumentModel.Document_Security">
+              <MappingFragment StoreEntitySet="Document_Security">
+                <ScalarProperty Name="IsGroup" ColumnName="IsGroup" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DocumentModel.Document_Security">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DocumentModel.Store.DocumentSecurityInsert">
+                  <ScalarProperty Name="IsGroup" ParameterName="Group" />
+                  <ScalarProperty Name="Admin" ParameterName="Admin" />
+                  <ScalarProperty Name="Active" ParameterName="Active" />
+                  <ScalarProperty Name="Description" ParameterName="Description" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="DocumentModel.Store.DocumentSecurityUpdate">
+                  <ScalarProperty Name="Admin" ParameterName="Admin" Version="Current" />
+                  <ScalarProperty Name="Active" ParameterName="Active" Version="Current" />
+                  <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="DocumentModel.Store.DocumentSecurityDelete">
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DocumentSecurityDelete" FunctionName="DocumentModel.Store.DocumentSecurityDelete" />
+          <FunctionImportMapping FunctionImportName="DocumentSecurityInsert" FunctionName="DocumentModel.Store.DocumentSecurityInsert" />
+          <FunctionImportMapping FunctionImportName="DocumentSecurityUpdate" FunctionName="DocumentModel.Store.DocumentSecurityUpdate" />
+          <FunctionImportMapping FunctionImportName="GetDocumentPermissionsForSecurity" FunctionName="DocumentModel.Store.GetDocumentPermissionsForSecurity">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.GetDocumentPermissionsForSecurity_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SecurityId" ColumnName="SecurityId" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="AccessLevel" ColumnName="AccessLevel" />
+                <ScalarProperty Name="O_Print" ColumnName="O_Print" />
+                <ScalarProperty Name="O_Save" ColumnName="O_Save" />
+                <ScalarProperty Name="O_Send" ColumnName="O_Send" />
+                <ScalarProperty Name="M_Highlight" ColumnName="M_Highlight" />
+                <ScalarProperty Name="M_Blackout" ColumnName="M_Blackout" />
+                <ScalarProperty Name="M_Note" ColumnName="M_Note" />
+                <ScalarProperty Name="CH_Highlight" ColumnName="CH_Highlight" />
+                <ScalarProperty Name="CH_Blackout" ColumnName="CH_Blackout" />
+                <ScalarProperty Name="CH_Note" ColumnName="CH_Note" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetDocumentSecurity" FunctionName="DocumentModel.Store.GetDocumentSecurity">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.GetDocumentSecurity_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+                <ScalarProperty Name="IsGroup" ColumnName="IsGroup" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetClassPermissionsVector" FunctionName="DocumentModel.Store.GetClassPermissionsVector" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.GetClassPermissionsVector_Result">
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+                <ScalarProperty Name="Release" ColumnName="Release" />
+                <ScalarProperty Name="MailOnRelease" ColumnName="MailOnRelease" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Document_DefinitionList_Items">
+            <EntityTypeMapping TypeName="DocumentModel.Document_DefinitionList_Items">
+              <MappingFragment StoreEntitySet="Document_DefinitionList_Items">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DefinitionId" ColumnName="DefinitionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DocumentModel.Document_DefinitionList_Items">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DocumentModel.Store.DocumentDefinitionListItemsInsert" >
+                  <ScalarProperty Name="Active" ParameterName="active" />
+                  <ScalarProperty Name="Name" ParameterName="name" />
+                  <ScalarProperty Name="DefinitionId" ParameterName="definitionId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="DocumentModel.Store.DocumentDefinitionListItemsUpdate" >
+                  <ScalarProperty Name="Active" ParameterName="active" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="name" Version="Current" />
+                  <ScalarProperty Name="DefinitionId" ParameterName="definitionId" Version="Current" />
+                  <ScalarProperty Name="Id" ParameterName="id" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="DocumentModel.Store.DocumentDefinitionListItemsDelete" >
+                  <ScalarProperty Name="Id" ParameterName="id" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Document_DefinitionPerClass">
+            <EntityTypeMapping TypeName="DocumentModel.Document_DefinitionPerClass">
+              <MappingFragment StoreEntitySet="Document_DefinitionPerClass">
+                <ScalarProperty Name="Deactivate_Date" ColumnName="Deactivate_Date" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+                <ScalarProperty Name="ColumnName" ColumnName="ColumnName" />
+                <ScalarProperty Name="DefinitionId" ColumnName="DefinitionId" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DocumentModel.Document_DefinitionPerClass">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DocumentModel.Store.DocumentDefinitionPerClassInsert" >
+                  <ScalarProperty Name="Active" ParameterName="active" />
+                  <ScalarProperty Name="DefaultValue" ParameterName="default" />
+                  <ScalarProperty Name="IsRequired" ParameterName="required" />
+                  <ScalarProperty Name="DefinitionId" ParameterName="definitionId" />
+                  <ScalarProperty Name="ClassId" ParameterName="classId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="DocumentModel.Store.DocumentDefinitionPerClassUpdate" >
+                  <ScalarProperty Name="DefaultValue" ParameterName="default" Version="Current" />
+                  <ScalarProperty Name="Active" ParameterName="active" Version="Current" />
+                  <ScalarProperty Name="IsRequired" ParameterName="required" Version="Current" />
+                  <ScalarProperty Name="Id" ParameterName="id" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="DocumentModel.Store.DocumentDefinitionPerClassDelete" >
+                  <ScalarProperty Name="Id" ParameterName="id" />
+                </DeleteFunction>
+                </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Document_ListItems_Permissions">
+            <EntityTypeMapping TypeName="DocumentModel.Document_ListItems_Permissions">
+              <MappingFragment StoreEntitySet="Document_ListItems_Permissions">
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+                <ScalarProperty Name="SecurityId" ColumnName="SecurityId" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DocumentModel.Document_ListItems_Permissions">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DocumentModel.Store.DocumentListItemsPermissionsInsert" >
+                  <ScalarProperty Name="Permission" ParameterName="permission" />
+                  <ScalarProperty Name="SecurityId" ParameterName="securityId" />
+                  <ScalarProperty Name="ClassId" ParameterName="classId" />
+                  <ScalarProperty Name="ItemId" ParameterName="itemId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="DocumentModel.Store.DocumentListItemsPermissionsUpdate" >
+                  <ScalarProperty Name="Permission" ParameterName="permission" Version="Current" />
+                  <ScalarProperty Name="Id" ParameterName="id" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="DocumentModel.Store.DocumentListItemsPermissionsDelete" >
+                  <ScalarProperty Name="Id" ParameterName="id" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DocumentDefinitionListItemsDelete" FunctionName="DocumentModel.Store.DocumentDefinitionListItemsDelete" />
+          <FunctionImportMapping FunctionImportName="DocumentDefinitionListItemsInsert" FunctionName="DocumentModel.Store.DocumentDefinitionListItemsInsert" />
+          <FunctionImportMapping FunctionImportName="DocumentDefinitionListItemsUpdate" FunctionName="DocumentModel.Store.DocumentDefinitionListItemsUpdate" />
+          <FunctionImportMapping FunctionImportName="DocumentDefinitionPerClassInsert" FunctionName="DocumentModel.Store.DocumentDefinitionPerClassInsert" />
+          <FunctionImportMapping FunctionImportName="DocumentListItemsPermissionsDelete" FunctionName="DocumentModel.Store.DocumentListItemsPermissionsDelete" />
+          <FunctionImportMapping FunctionImportName="DocumentListItemsPermissionsInsert" FunctionName="DocumentModel.Store.DocumentListItemsPermissionsInsert" />
+          <FunctionImportMapping FunctionImportName="DocumentListItemsPermissionsUpdate" FunctionName="DocumentModel.Store.DocumentListItemsPermissionsUpdate" />
+          <FunctionImportMapping FunctionImportName="DocumentPermissionsFillDefaultForSecurity" FunctionName="DocumentModel.Store.DocumentPermissionsFillDefaultForSecurity" />
+          <FunctionImportMapping FunctionImportName="GetDocumentDefinitionsForClass" FunctionName="DocumentModel.Store.GetDocumentDefinitionsForClass">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.GetDocumentDefinitionsForClass_Result">
+                <ScalarProperty Name="DefinitionId" ColumnName="DefinitionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="ColumnName" ColumnName="ColumnName" />
+                <ScalarProperty Name="ListItemColumnName" ColumnName="ListItemColumnName" />
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deactivate_Date" ColumnName="Deactivate_Date" />
+                <ScalarProperty Name="Items" ColumnName="Items" />
+                <ScalarProperty Name="CurrentName" ColumnName="CurrentName" />
+                <ScalarProperty Name="CurrentDescription" ColumnName="CurrentDescription" />
+                <ScalarProperty Name="Name_PL" ColumnName="Name_PL" />
+                <ScalarProperty Name="Name_RU" ColumnName="Name_RU" />
+                <ScalarProperty Name="Description_PL" ColumnName="Description_PL" />
+                <ScalarProperty Name="Description_RU" ColumnName="Description_RU" />
+                <ScalarProperty Name="CurrentName_Type" ColumnName="CurrentName_Type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetDocumentDefinitionsByDirective" FunctionName="DocumentModel.Store.GetDocumentDefinitionsByDirective">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.GetDocumentDefinitionsByDirective_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="Items" ColumnName="Items" />
+                <ScalarProperty Name="CurrentName" ColumnName="CurrentName" />
+                <ScalarProperty Name="CurrentDescription" ColumnName="CurrentDescription" />
+                <ScalarProperty Name="Name_PL" ColumnName="Name_PL" />
+                <ScalarProperty Name="Name_RU" ColumnName="Name_RU" />
+                <ScalarProperty Name="Description_PL" ColumnName="Description_PL" />
+                <ScalarProperty Name="Description_RU" ColumnName="Description_RU" />
+                <ScalarProperty Name="CurrentName_Type" ColumnName="CurrentName_Type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DocumentDefinitionPerClassUpdate" FunctionName="DocumentModel.Store.DocumentDefinitionPerClassUpdate" />
+          <FunctionImportMapping FunctionImportName="DocumentDefinitionPerClassDelete" FunctionName="DocumentModel.Store.DocumentDefinitionPerClassDelete" />
+          <FunctionImportMapping FunctionImportName="GetDocumentsClassByAssignedDefinition" FunctionName="DocumentModel.Store.GetDocumentsClassByAssignedDefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.GetDocumentsClassByAssignedDefinition_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Create_User" ColumnName="Create_User" />
+                <ScalarProperty Name="Edit_Date" ColumnName="Edit_Date" />
+                <ScalarProperty Name="Edit_User" ColumnName="Edit_User" />
+                <ScalarProperty Name="Table_Name" ColumnName="Table_Name" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deactivate_Date" ColumnName="Deactivate_Date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetDocumentListItemsPermissions" FunctionName="DocumentModel.Store.GetDocumentListItemsPermissions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.GetDocumentListItemsPermissions_Result">
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+                <ScalarProperty Name="SecurityId" ColumnName="SecurityId" />
+                <ScalarProperty Name="Permission" ColumnName="Permission" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="DefinitionId" ColumnName="DefinitionId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetDocumentDefinitionListItems" FunctionName="DocumentModel.Store.GetDocumentDefinitionListItems">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.GetDocumentDefinitionListItems_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DefinitionId" ColumnName="DefinitionId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetDocumentListItemsPermissionsToSelect" FunctionName="DocumentModel.Store.GetDocumentListItemsPermissionsToSelect" />
+          <FunctionImportMapping FunctionImportName="ACT_DeleteAssign" FunctionName="DocumentModel.Store.ACT_DeleteAssign" />
+          <FunctionImportMapping FunctionImportName="ACT_UpdateAssign" FunctionName="DocumentModel.Store.ACT_UpdateAssign" />
+          <FunctionImportMapping FunctionImportName="ACT_UpdateOznaczeniaId" FunctionName="DocumentModel.Store.ACT_UpdateOznaczeniaId" />
+          <FunctionImportMapping FunctionImportName="GetSecondaryDocuments" FunctionName="DocumentModel.Store.GetSecondaryDocuments" />
+          <FunctionImportMapping FunctionImportName="GetDocumentClassPermission2" FunctionName="DocumentModel.Store.GetDocumentClassPermission">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetDocumentClassPermission" FunctionName="DocumentModel.Store.GetDocumentClassPermission">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DocumentModel.GetDocumentClassPermission_Result">
+                <ScalarProperty Name="O_Print" ColumnName="O_Print" />
+                <ScalarProperty Name="O_Save" ColumnName="O_Save" />
+                <ScalarProperty Name="O_Send" ColumnName="O_Send" />
+                <ScalarProperty Name="M_Highlight" ColumnName="M_Highlight" />
+                <ScalarProperty Name="M_Blackout" ColumnName="M_Blackout" />
+                <ScalarProperty Name="M_Note" ColumnName="M_Note" />
+                <ScalarProperty Name="CH_Highlight" ColumnName="CH_Highlight" />
+                <ScalarProperty Name="CH_Blackout" ColumnName="CH_Blackout" />
+                <ScalarProperty Name="CH_Note" ColumnName="CH_Note" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LOG_DodajLog" FunctionName="DocumentModel.Store.LOG_DodajLog" />
+          <FunctionImportMapping FunctionImportName="LOG_Dokument_DodajAktualizacje" FunctionName="DocumentModel.Store.LOG_Dokument_DodajAktualizacje" />
+          <FunctionImportMapping FunctionImportName="LOG_Dokument_DodajDostep" FunctionName="DocumentModel.Store.LOG_Dokument_DodajDostep" />
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
